@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 
-\setlength\parindent{0pt} %% Do not touch this
+%\setlength\parindent{20pt} %% Do not touch this
 
 \title{Homework 1} 
 
@@ -37,11 +37,22 @@ $$
 
 When $f(t,x)=0$, we have the unique solution $u(t,x) = u_0(x-at)$. This gives the answer $u_0(x-at) = u(0, x-at) = 0$, which is the indicated solution for all $x<0$. 
 
-For $x \geq 0$, let's change variables so that
+For $f(t,x)=1$ and $x-at <0$, we can show that the solution $u(t,x)=x/a$ is valid. Observe:
+
+
+\begin{equation*}
+\begin{aligned}
+u(t,x) = \frac{x}{a} ~~~ \longrightarrow ~~~ u_t = 0 ~~~ \text{and} ~~~ u_x = \frac{1}{a}
+\end{aligned}
+\end{equation*}
+
+\noindent Plugging this into our problem, we see that the result is $0 +a(1/a) = 1$, which is true. So this solution is correct.
+
+For $f(t,x)=1$ and $x-at \geq 0$, let's change variables so that
 
 $$ \tau=t ~~~~~\text{and} ~~~~~ \xi=x-at ~~~ \longrightarrow ~~~ x = \xi +a\tau.$$
 
-Now we have $\tilde{u}(\tau, \xi) = u(t,x)$, and it follows that
+\noindent Now we have $\tilde{u}(\tau, \xi) = u(t,x)$, and it follows that
 
 \begin{equation*}
 \begin{aligned}
@@ -50,7 +61,7 @@ Now we have $\tilde{u}(\tau, \xi) = u(t,x)$, and it follows that
 \end{aligned}
 \end{equation*}
 
-Now with $\frac{\partial\tilde{u}}{\partial\tau}=f(\tau, \xi+a\tau)$, we can solve this as an ordinary differential equation, which has the following solution:
+\noindent With $\frac{\partial\tilde{u}}{\partial\tau}=f(\tau, \xi+a\tau)$, we can solve this as an ordinary differential equation, which has the following solution:
 
 \begin{equation*}
 \begin{aligned}
@@ -60,28 +71,31 @@ Now with $\frac{\partial\tilde{u}}{\partial\tau}=f(\tau, \xi+a\tau)$, we can sol
 \end{aligned}
 \end{equation*}
 
+And we see that this is indeed the solution we were seeking.
+
 
 
 
 \section*{1.3.1}
 
-For values of $x$ in the interval $[-1,3]$ and $t$ in $[0,2.4],$ solve the one-way wave equation
-$$
-u_{t}+u_{x}=0
-$$
-with the initial data
-$$
-u(0, x)=\left\{\begin{array}{ll}
+For values of $x$ in the interval $[-1,3]$ and $t$ in $[0,2.4],$ solve the one-way wave equation $u_{t}+u_{x}=0$ with the initial data
+$$u(0, x)=\left\{\begin{array}{ll}
 {\cos ^{2} \pi x} & {\text { if }|x| \leq \frac{1}{2}} \\
 {0} & {\text { otherwise }}
-\end{array}\right.
-$$
-and the boundary data $u(t,-1)=0$
-Use the following four schemes for $h=1 / 10, \quad 1 / 20,$ and $1 / 40$
-(a) Forward-time backward-space scheme $(1.3 .2)$ with $\lambda=0.8$
-(b) Forward-time central-space scheme $(1.3 .3)$ with $\lambda=0.8$
-(c) Lax-Friedrichs scheme $(1.3 .5)$ with $\lambda=0.8$ and 1.6
-(d) Leapfrog scheme $(1.3 .4)$ with $\lambda=0.8$
+\end{array}\right.$$
+and the boundary data $u(t,-1)=0.$
+Use the following four schemes for $h=1 / 10,~1 / 20,$ and $1 / 40$:
+\begin{enumerate}
+	\begin{enumerate}
+		\item Forward-time backward-space scheme $(1.3 .2)$ with $\lambda=0.8$
+		\item Forward-time central-space scheme $(1.3 .3)$ with $\lambda=0.8$
+		\item Lax-Friedrichs scheme $(1.3 .5)$ with $\lambda=0.8$ and 1.6
+		\item Leapfrog scheme $(1.3 .4)$ with $\lambda=0.8$.
+	\end{enumerate}
+\end{enumerate}
+
+
+
 For schemes (b). (c), and (d), at the right boundary use the condition $v_{M}^{n+1}=$ $v_{M-1}^{n+1},$ where $x_{M}=3 .$ For scheme (d) use scheme (b) to compute the solution at $n=1$
 For each scheme determine whether the scheme is a useful or useless scheme. For the purposes of this exercise only, a scheme will be useless if $\left|v_{m}^{n}\right|$ is greater than
 5 for any value of $m$ and $n .$ It will be regarded as a useful scheme if the solution looks like a reasonable approximation to the solution of the differential equations. Graph or plot several solutions at the last time they were computed. What do you notice about the "blow-up time" for the useless schemes as the mesh size decreases? Is there a pattern to these solutions? For the useful cases, how does the error decrease
