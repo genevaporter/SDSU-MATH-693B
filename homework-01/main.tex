@@ -102,12 +102,12 @@ Use the following four schemes for $h=1 / 10,~1 / 20,$ and $1 / 40$:
 
 \subsubsection*{(a) Forward Time, Backward Space}
 
-Figure (1) shows this scheme. Notice that the approximate solution dampens to zero (see video, emailed). For $h=1/10$, it hits zero by about 0.72 seconds. For $h=1/20$, it hits zero by about 0.36 seconds. For $h=1/40$, it hits zero by about 0.18 seconds. As the density of the mesh doubles, it converges twice as quickly. Error?
+Figure (1) shows this scheme. Notice that the approximate solution has a significant error at first, but is still "useful" (see video, emailed). For $h=1/10$, the error is 0.3094. For $h=1/20$, the error is 0.1888. For $h=1/40$, the error is 0.1055. As the density of the mesh doubles, the error reduces by roughly half.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_h_one_20th.png}
-	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_h_one_40th.png}
+	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_1_10th.png}	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_1_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_1_40th.png}
 	\caption{Forward time, backward space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
 \end{figure}
 
@@ -117,31 +117,31 @@ Figure (2) shows this scheme. Notice that the approximate solution explodes to i
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_h_one_20th.png}
-	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_h_one_40th.png}
+	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_1_10th.png}	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_1_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_1_40th.png}
 	\caption{Forward time, central space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
 \end{figure}
 
 \subsubsection*{(c) Lax-Friedrichs}
 
-Figure (3) shows this scheme. Notice that the approximate solution explodes to infinity (see video, emailed). For $h=1/10$, the solution exceeds a value of 5 after about 1.6 seconds. For $h=1/20$, the solution exceeds 5 after about 1.12 seconds. For $h=1/40$, the solution passes 5 after about .72 seconds. As the density of the mesh doubles, the solution becomes useless more quickly, in a similar scale to the forward time/central space scheme.
+Figure (3) shows this scheme. Notice that the approximate solution has a significant error at first, but is still "useful" (see video, emailed). For $h=1/10$, the error is 0.4705. For $h=1/20$, the error is 0.3315. For $h=1/40$, the error is 0.2064. As the density of the mesh doubles, the error decreases by about 1/3.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_h_one_20th.png}
-	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_h_one_40th.png}
+	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_1_10th.png}	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_1_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_1_40th.png}
 	\caption{Lax-Friedrichs at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
 \end{figure}
 
 \subsubsection*{(d) Leapfrog}
 
-Figure (4) shows this scheme. Notice that the approximate solution dampens to zero (see video, emailed). For $h=1/10$, it hits zero by about 0.72 seconds, like the forward time, backward space scheme. For $h=1/20$, it hits zero by about 0.36 seconds. For $h=1/40$, it hits zero by about 0.18 seconds. Just like (a), as the mesh density doubles, the time to convergence halves. Error? 
+Figure (4) shows this scheme. Notice that the approximate solution has a significant error at first, but is ultimately very useful (see video, emailed). For $h=1/10$, the error is 0.0755. For $h=1/20$, the error is 0.0151. For $h=1/40$, the error is 0.0030. As the density of the mesh doubles, the error decreases by about 3/4. This is clearly the most successful scheme.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_h_one_20th.png}
-	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_h_one_40th.png}
-	\caption{Forward time, backward space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
+	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_1_10th.png}	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_1_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_1_40th.png}
+	\caption{Leapfrog scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
 \end{figure}
 
 \pagebreak
@@ -154,14 +154,48 @@ Show that the leapfrog scheme is consistent with the one-way wave equation.
 
 First, let's establish the equations we are working with. 
 
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
-~& \text{one-way wave eq.} & u_t + u_x = 0 \\
-~& \text{leapfrog scheme} & \frac{u_m^{n+1} - u_m^{n-1}}{2k} + a\frac{u_{m+1} - u^n_{m-1}
+ \text{one-way wave eq.}~~~~ & P(u) = u_t + u_x = 0 \\
+ \text{leapfrog scheme} ~~~~~~& P_{k,h}(u)\frac{u_m^{n+1} - u_m^{n-1}}{2k} + a\frac{u_{m+1}^n - u^n_{m-1}}{2h}
 \end{aligned}
-\end{equation}
+\end{equation*}
 
-Now we write out the Taylor expansion for each term of the leapfrog scheme.
+Now we write out the Taylor expansion for each term of the leapfrog scheme. The respective MATLAB commands used to quickly find the Taylor expansions for $u_m^{n+1}, ~u_m^{n-1}, ~u_{m+1}^n, ~u_{m-1}^n$ were:
+
+\begin{verbatim}
+	taylor(f(t+k, x), [h,k], 'ExpansionPoint', [0,0], 'Order', 3)
+	taylor(f(t-k, x), [h,k], 'ExpansionPoint', [0,0], 'Order', 3)
+	taylor(f(t, x+h), [h,k], 'ExpansionPoint', [0,0], 'Order', 3)
+	taylor(f(t, x-h), [h,k], 'ExpansionPoint', [0,0], 'Order', 3)
+\end{verbatim}
+
+The Taylor expansion for these terms gives us:
+
+\begin{equation*}
+\begin{aligned}
+	u_m^{n+1} = u_m^n + ku_t + \frac{1}{2}k^2u_{tt} + \mathcal{O}(k^3)\\
+	u_m^{n-1} = u_m^n - ku_t + \frac{1}{2}k^2u_{tt} + \mathcal{O}(k^3)\\
+	u_{m+1}^n = u_m^n + hu_x + \frac{1}{2}h^2u_{xx} + \mathcal{O}(h^3)\\
+	u_{m-1}^n = u_m^n - hu_x + \frac{1}{2}h^2u_{xx} + \mathcal{O}(h^3)
+\end{aligned}
+\end{equation*}
+
+Now we substitute the expansion into the leapfrog scheme, yielding:
+
+\begin{equation*}
+\begin{aligned}
+	&\frac{(u_m^n + ku_t + \frac{1}{2}k^2u_{tt} + \mathcal{O}(k^3))-(u_m^n - ku_t + \frac{1}{2}k^2u_{tt} + \mathcal{O}(k^3))}{2k} - \\
+	&a\frac{(u_m^n + hu_x + \frac{1}{2}h^2u_{xx} + \mathcal{O}(h^3))-( u_m^n - hu_x + \frac{1}{2}h^2u_{xx} + \mathcal{O}(h^3))}{2h}\\
+	&=u_t+au_x
+\end{aligned}
+\end{equation*}
+
+Next, it is necessary to subtract the expanded scheme from the original wave equation, and since they are identical, we get zero:
+
+$$ P(u) - P_{k,h}(u) = (u_t + au_x) - (u_t + au_x) = 0 $$
+
+Therefore, the leapfrog scheme is consistent with the one-way wave equation.
 
 \section*{1.5.1}
 
@@ -174,7 +208,59 @@ are stable if $|\alpha|+|\beta|$ is less than or equal to 1. Conclude that the L
 
 \subsubsection*{Solution}
 
-\section*{MATLAB Command Comments}
+By definition, a first order equation scheme is stable if there is an integer J such that for any positive time $T$, there is a constant $C_T$ such that
+
+$$
+\begin{array}{l}
+{\qquad h \sum_{m=-\infty}^{\infty}\left|u_{m}^{n}\right|^{2} \leq C_{T} h \sum_{j=0}^{J} \sum_{m=-\infty}^{\infty}\left|u_{m}^{j}\right|^{2}} \\
+~\\
+{\text { ~~~~~for } 0 \leq n k \leq T, \text { with }(k, h) \in \Lambda}
+\end{array}
+$$
+
+For a scheme of the form $u_{m}^{n+1}=\alpha u_{m+1}^{n}+\beta u_{m-1}^{n}$, we have:
+
+$$
+\begin{aligned}
+\sum_{m=-\infty}^{\infty}\left|u_{i_{m}}^{n+1}\right|^{2} &=\sum_{m=-\infty}^{\infty}\left|\alpha u_{n}^{n}+\beta u_{m+1}^{n}\right|^{2} \\
+& \leq \sum_{m=-\infty}^{\infty}|\alpha|^{2}\left|u_{m}^{n}\right|^{2}+2|\alpha|\left|\beta\left\|u_{m}^{n}\right\| u_{m+1}^{n}\right|+|\beta|^{2}\left|u_{m+1}^{n}\right|^{2} \\
+& \leq \sum_{m=-\infty}^{\infty}|\alpha|^{2}\left|u_{m}^{n}\right|^{2}+|\alpha||\beta|\left(\left|u_{m}^{n}\right|^{2}+\left|u_{m+1}^{n}\right|^{2}\right)+|\beta|^{2}\left|u_{m+1}^{n}\right|^{2}\\
+&=\sum_{m=-\infty}^{\infty}|\alpha|^{2}\left|u_{m}^{n}\right|^{2}+\left|\alpha\|\beta\| u_{m}^{n}\right|^{2}+\sum_{m=-\infty}^{\infty}|\alpha||\beta|\left|u_{m+1}^{n}\right|^{2}+|\beta|^{2}\left|u_{m+1}^{n}\right|^{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+&=\sum_{m=-\infty}^{\infty}|\alpha|^{2}\left|u_{m}^{n}\right|^{2}+|\alpha|\left|\beta \| u_{m}^{n}\right|^{2}+\sum_{m=-\infty}^{\infty}|\alpha||\beta|\left|u_{m}^{n}\right|^{2}+|\beta|^{2}\left|u_{m}^{n}\right|^{2}\\
+&=\sum_{m=-\infty}^{\infty}\left(|\alpha|^{2}+2|\alpha||\beta|+|\beta|^{2}\right)\left|u_{m}^{n}\right|^{2}\\
+&=(|\alpha|+|\beta|)^{2} \sum_{m=-\infty}^{\infty}\left|u_{m}^{n}\right|^{2}\\
+\end{aligned}
+$$
+
+$$
+\longrightarrow ~~~\sum_{m=-\infty}^{\infty}\left|v_{m}^{n+1}\right|^{2} \leq(|\alpha|+|\beta|)^{2} \sum_{m=-\infty}^{\infty}\left|v_{m}^{n}\right|^{2}
+$$
+
+$$
+\longrightarrow ~~~ \sum_{m=-\infty}^{\infty}\left|v_{m}^{n}\right|^{2} \leq(|\alpha|+|\beta|)^{2 n} \sum_{m=-\infty}^{\infty}\left|v_{m}^{0}\right|^{2}
+$$
+
+This derivation also appears in Strikwerda pages 30-31. We can see that this can always be true for any n, so long as the term $(|\alpha|+|\beta|)^{2 n}$ does not approach infinity. This would be possible only if $|\alpha|+|\beta|\leq 1$.
+
+The Lax-Friedrichs scheme is similar to this form, and the stability derivation is performed in nearly the same way:
+
+$$
+\frac{u_{m}^{n+1}-\frac{1}{2}\left(u_{m+1}^{n}+u_{m-1}^{n}\right)}{k}+a \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2 h} 
+$$
+
+$$ \longrightarrow~~u_m^{n+1} = (1/2-a/2\lambda)u_{m+1}^n + (1/2+a/2\lambda)u_{m-1}^n $$
+
+Following the previous form, we have $\alpha = 1/2-a/2\lambda$ and $\beta =1/2+a/2\lambda$. Therefore,
+$$ \begin{aligned}
+	|\alpha| + |\beta| & = |1/2-a/2\lambda| + |1/2+a/2\lambda|=\frac{1}{2}(|1-a\lambda| + |1+a\lambda|)\leq 1 ~~~\longrightarrow
+\end{aligned} $$
+
+$$ 2|1-a\lambda| \leq |1-a\lambda| + |1+a\lambda| \leq 2 ~~~\longrightarrow |1-a\lambda|\leq 1$$
+
+For this equivalence to be true, we need $|a\lambda|\leq1$, which is our required term for stability.
 
 
 \end{document}

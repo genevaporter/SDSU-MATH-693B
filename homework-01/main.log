@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2019.12.20)  12 FEB 2020 22:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2019.12.20)  13 FEB 2020 05:07
 entering extended mode
 **./main.tex
 (main.tex
@@ -184,133 +184,135 @@ G,.JBIG2,.JB2,.eps]
 ) [1
 
 {C:/Users/genev/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-<./code/a_forward_time_backward_space_h_one_10th.png, id=16, 421.575pt x 316.06
-08pt>
-File: ./code/a_forward_time_backward_space_h_one_10th.png Graphic file (type pn
-g)
-<use ./code/a_forward_time_backward_space_h_one_10th.png>
-Package pdftex.def Info: ./code/a_forward_time_backward_space_h_one_10th.png  u
-sed on input line 109.
+<./code/a_forward_time_backward_space_1_10th.png, id=16, 421.575pt x 316.0608pt
+>
+File: ./code/a_forward_time_backward_space_1_10th.png Graphic file (type png)
+<use ./code/a_forward_time_backward_space_1_10th.png>
+Package pdftex.def Info: ./code/a_forward_time_backward_space_1_10th.png  used 
+on input line 109.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/a_forward_time_backward_space_h_one_20th.png, id=17, 421.575pt x 316.06
-08pt>
-File: ./code/a_forward_time_backward_space_h_one_20th.png Graphic file (type pn
-g)
-<use ./code/a_forward_time_backward_space_h_one_20th.png>
-Package pdftex.def Info: ./code/a_forward_time_backward_space_h_one_20th.png  u
-sed on input line 109.
+<./code/a_forward_time_backward_space_1_20th.png, id=17, 421.575pt x 316.0608pt
+>
+File: ./code/a_forward_time_backward_space_1_20th.png Graphic file (type png)
+<use ./code/a_forward_time_backward_space_1_20th.png>
+Package pdftex.def Info: ./code/a_forward_time_backward_space_1_20th.png  used 
+on input line 109.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/a_forward_time_backward_space_h_one_40th.png, id=18, 421.575pt x 316.06
-08pt>
-File: ./code/a_forward_time_backward_space_h_one_40th.png Graphic file (type pn
-g)
-<use ./code/a_forward_time_backward_space_h_one_40th.png>
-Package pdftex.def Info: ./code/a_forward_time_backward_space_h_one_40th.png  u
-sed on input line 110.
+<./code/a_forward_time_backward_space_1_40th.png, id=18, 421.575pt x 316.0608pt
+>
+File: ./code/a_forward_time_backward_space_1_40th.png Graphic file (type png)
+<use ./code/a_forward_time_backward_space_1_40th.png>
+Package pdftex.def Info: ./code/a_forward_time_backward_space_1_40th.png  used 
+on input line 110.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
 
 
 LaTeX Warning: Float too large for page by 21.80531pt on input line 112.
 
-<./code/b_forward_time_central_space_h_one_10th.png, id=19, 421.575pt x 316.060
-8pt>
-File: ./code/b_forward_time_central_space_h_one_10th.png Graphic file (type png
-)
-<use ./code/b_forward_time_central_space_h_one_10th.png>
-Package pdftex.def Info: ./code/b_forward_time_central_space_h_one_10th.png  us
-ed on input line 120.
+<./code/b_forward_time_central_space_1_10th.png, id=19, 421.575pt x 316.0608pt>
+
+File: ./code/b_forward_time_central_space_1_10th.png Graphic file (type png)
+<use ./code/b_forward_time_central_space_1_10th.png>
+Package pdftex.def Info: ./code/b_forward_time_central_space_1_10th.png  used o
+n input line 120.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/b_forward_time_central_space_h_one_20th.png, id=20, 421.575pt x 316.060
-8pt>
-File: ./code/b_forward_time_central_space_h_one_20th.png Graphic file (type png
-)
-<use ./code/b_forward_time_central_space_h_one_20th.png>
-Package pdftex.def Info: ./code/b_forward_time_central_space_h_one_20th.png  us
-ed on input line 120.
+<./code/b_forward_time_central_space_1_20th.png, id=20, 421.575pt x 316.0608pt>
+
+File: ./code/b_forward_time_central_space_1_20th.png Graphic file (type png)
+<use ./code/b_forward_time_central_space_1_20th.png>
+Package pdftex.def Info: ./code/b_forward_time_central_space_1_20th.png  used o
+n input line 120.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/b_forward_time_central_space_h_one_40th.png, id=21, 421.575pt x 316.060
-8pt>
-File: ./code/b_forward_time_central_space_h_one_40th.png Graphic file (type png
-)
-<use ./code/b_forward_time_central_space_h_one_40th.png>
-Package pdftex.def Info: ./code/b_forward_time_central_space_h_one_40th.png  us
-ed on input line 121.
+<./code/b_forward_time_central_space_1_40th.png, id=21, 421.575pt x 316.0608pt>
+
+File: ./code/b_forward_time_central_space_1_40th.png Graphic file (type png)
+<use ./code/b_forward_time_central_space_1_40th.png>
+Package pdftex.def Info: ./code/b_forward_time_central_space_1_40th.png  used o
+n input line 121.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
 
 LaTeX Warning: Float too large for page by 21.80531pt on input line 123.
 
-<./code/c_lax_friedrichs_h_one_10th.png, id=22, 421.575pt x 316.0608pt>
-File: ./code/c_lax_friedrichs_h_one_10th.png Graphic file (type png)
-<use ./code/c_lax_friedrichs_h_one_10th.png>
-Package pdftex.def Info: ./code/c_lax_friedrichs_h_one_10th.png  used on input 
-line 131.
+<./code/c_lax_friedrichs_1_10th.png, id=22, 421.575pt x 316.0608pt>
+File: ./code/c_lax_friedrichs_1_10th.png Graphic file (type png)
+<use ./code/c_lax_friedrichs_1_10th.png>
+Package pdftex.def Info: ./code/c_lax_friedrichs_1_10th.png  used on input line
+ 131.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/c_lax_friedrichs_h_one_20th.png, id=23, 421.575pt x 316.0608pt>
-File: ./code/c_lax_friedrichs_h_one_20th.png Graphic file (type png)
-<use ./code/c_lax_friedrichs_h_one_20th.png>
-Package pdftex.def Info: ./code/c_lax_friedrichs_h_one_20th.png  used on input 
-line 131.
+<./code/c_lax_friedrichs_1_20th.png, id=23, 421.575pt x 316.0608pt>
+File: ./code/c_lax_friedrichs_1_20th.png Graphic file (type png)
+<use ./code/c_lax_friedrichs_1_20th.png>
+Package pdftex.def Info: ./code/c_lax_friedrichs_1_20th.png  used on input line
+ 131.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/c_lax_friedrichs_h_one_40th.png, id=24, 421.575pt x 316.0608pt>
-File: ./code/c_lax_friedrichs_h_one_40th.png Graphic file (type png)
-<use ./code/c_lax_friedrichs_h_one_40th.png>
-Package pdftex.def Info: ./code/c_lax_friedrichs_h_one_40th.png  used on input 
-line 132.
+<./code/c_lax_friedrichs_1_40th.png, id=24, 421.575pt x 316.0608pt>
+File: ./code/c_lax_friedrichs_1_40th.png Graphic file (type png)
+<use ./code/c_lax_friedrichs_1_40th.png>
+Package pdftex.def Info: ./code/c_lax_friedrichs_1_40th.png  used on input line
+ 132.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
 
 LaTeX Warning: Float too large for page by 21.13863pt on input line 134.
 
-<./code/d_leapfrog_h_one_10th.png, id=25, 421.575pt x 316.0608pt>
-File: ./code/d_leapfrog_h_one_10th.png Graphic file (type png)
-<use ./code/d_leapfrog_h_one_10th.png>
-Package pdftex.def Info: ./code/d_leapfrog_h_one_10th.png  used on input line 1
-42.
+<./code/d_leapfrog_1_10th.png, id=25, 421.575pt x 316.0608pt>
+File: ./code/d_leapfrog_1_10th.png Graphic file (type png)
+<use ./code/d_leapfrog_1_10th.png>
+Package pdftex.def Info: ./code/d_leapfrog_1_10th.png  used on input line 142.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/d_leapfrog_h_one_20th.png, id=26, 421.575pt x 316.0608pt>
-File: ./code/d_leapfrog_h_one_20th.png Graphic file (type png)
-<use ./code/d_leapfrog_h_one_20th.png>
-Package pdftex.def Info: ./code/d_leapfrog_h_one_20th.png  used on input line 1
-42.
+<./code/d_leapfrog_1_20th.png, id=26, 421.575pt x 316.0608pt>
+File: ./code/d_leapfrog_1_20th.png Graphic file (type png)
+<use ./code/d_leapfrog_1_20th.png>
+Package pdftex.def Info: ./code/d_leapfrog_1_20th.png  used on input line 142.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
-<./code/d_leapfrog_h_one_40th.png, id=27, 421.575pt x 316.0608pt>
-File: ./code/d_leapfrog_h_one_40th.png Graphic file (type png)
-<use ./code/d_leapfrog_h_one_40th.png>
-Package pdftex.def Info: ./code/d_leapfrog_h_one_40th.png  used on input line 1
-43.
+<./code/d_leapfrog_1_40th.png, id=27, 421.575pt x 316.0608pt>
+File: ./code/d_leapfrog_1_40th.png Graphic file (type png)
+<use ./code/d_leapfrog_1_40th.png>
+Package pdftex.def Info: ./code/d_leapfrog_1_40th.png  used on input line 143.
 (pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
 
-LaTeX Warning: Float too large for page by 21.80531pt on input line 145.
+LaTeX Warning: Float too large for page by 21.13863pt on input line 145.
 
-[3] [4 <./code/a_forward_time_backward_space_h_one_10th.png (PNG copy)> <./code
-/a_forward_time_backward_space_h_one_20th.png (PNG copy)> <./code/a_forward_tim
-e_backward_space_h_one_40th.png (PNG copy)>] [5 <./code/b_forward_time_central_
-space_h_one_10th.png (PNG copy)> <./code/b_forward_time_central_space_h_one_20t
-h.png (PNG copy)> <./code/b_forward_time_central_space_h_one_40th.png (PNG copy
-)>] [6 <./code/c_lax_friedrichs_h_one_10th.png (PNG copy)> <./code/c_lax_friedr
-ichs_h_one_20th.png (PNG copy)> <./code/c_lax_friedrichs_h_one_40th.png (PNG co
-py)>] [7 <./code/d_leapfrog_h_one_10th.png (PNG copy)> <./code/d_leapfrog_h_one
-_20th.png (PNG copy)> <./code/d_leapfrog_h_one_40th.png (PNG copy)>] [8]
-(main.aux) ) 
+[3] [4 <./code/a_forward_time_backward_space_1_10th.png (PNG copy)> <./code/a_f
+orward_time_backward_space_1_20th.png (PNG copy)> <./code/a_forward_time_backwa
+rd_space_1_40th.png (PNG copy)>] [5 <./code/b_forward_time_central_space_1_10th
+.png (PNG copy)> <./code/b_forward_time_central_space_1_20th.png (PNG copy)> <.
+/code/b_forward_time_central_space_1_40th.png (PNG copy)>] [6 <./code/c_lax_fri
+edrichs_1_10th.png (PNG copy)> <./code/c_lax_friedrichs_1_20th.png (PNG copy)> 
+<./code/c_lax_friedrichs_1_40th.png (PNG copy)>] [7 <./code/d_leapfrog_1_10th.p
+ng (PNG copy)> <./code/d_leapfrog_1_20th.png (PNG copy)> <./code/d_leapfrog_1_4
+0th.png (PNG copy)>] [8]
+Overfull \hbox (26.49359pt too wide) detected at line 229
+[][]
+ []
+
+[9]
+Overfull \hbox (4.44551pt too wide) detected at line 259
+[][]
+ []
+
+[10] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 2157 strings out of 493312
- 30707 string characters out of 3138898
- 90528 words of memory out of 3000000
- 5684 multiletter control sequences out of 15000+200000
- 9626 words of font info for 35 fonts, out of 3000000 for 9000
+ 2159 strings out of 493312
+ 30488 string characters out of 3138898
+ 91528 words of memory out of 3000000
+ 5685 multiletter control sequences out of 15000+200000
+ 9795 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,25p,460b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb>
-Output written on main.pdf (8 pages, 424129 bytes).
+ 41i,11n,25p,400b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+>
+Output written on main.pdf (10 pages, 516689 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
