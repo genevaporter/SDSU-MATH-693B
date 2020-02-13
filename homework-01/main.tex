@@ -98,11 +98,6 @@ Use the following four schemes for $h=1 / 10,~1 / 20,$ and $1 / 40$:
 
 
 
-For schemes (b). (c), and (d), at the right boundary use the condition $v_{M}^{n+1}=$ $v_{M-1}^{n+1},$ where $x_{M}=3 .$ For scheme (d) use scheme (b) to compute the solution at $n=1$
-For each scheme determine whether the scheme is a useful or useless scheme. For the purposes of this exercise only, a scheme will be useless if $\left|v_{m}^{n}\right|$ is greater than
-5 for any value of $m$ and $n .$ It will be regarded as a useful scheme if the solution looks like a reasonable approximation to the solution of the differential equations. Graph or plot several solutions at the last time they were computed. What do you notice about the "blow-up time" for the useless schemes as the mesh size decreases? Is there a pattern to these solutions? For the useful cases, how does the error decrease
-as the mesh decreases; i.e., as $h$ decreases by one-half, by how much does the error decrease?
-
 \subsubsection*{Solution}
 
 \subsubsection*{(a) Forward Time, Backward Space}
@@ -149,11 +144,24 @@ Figure (4) shows this scheme. Notice that the approximate solution dampens to ze
 	\caption{Forward time, backward space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
 \end{figure}
 
+\pagebreak
+
 \section*{1.4.2}
 
 Show that the leapfrog scheme is consistent with the one-way wave equation.
 
 \subsubsection*{Solution}
+
+First, let's establish the equations we are working with. 
+
+\begin{equation}
+\begin{aligned}
+~& \text{one-way wave eq.} & u_t + u_x = 0 \\
+~& \text{leapfrog scheme} & \frac{u_m^{n+1} - u_m^{n-1}}{2k} + a\frac{u_{m+1} - u^n_{m-1}
+\end{aligned}
+\end{equation}
+
+Now we write out the Taylor expansion for each term of the leapfrog scheme.
 
 \section*{1.5.1}
 
