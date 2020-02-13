@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 %\setlength\parindent{20pt} %% Do not touch this
 
@@ -86,6 +87,7 @@ $$u(0, x)=\left\{\begin{array}{ll}
 and the boundary data $u(t,-1)=0.$
 Use the following four schemes for $h=1 / 10,~1 / 20,$ and $1 / 40$:
 \begin{enumerate}
+	\item
 	\begin{enumerate}
 		\item Forward-time backward-space scheme $(1.3 .2)$ with $\lambda=0.8$
 		\item Forward-time central-space scheme $(1.3 .3)$ with $\lambda=0.8$
@@ -100,15 +102,80 @@ For schemes (b). (c), and (d), at the right boundary use the condition $v_{M}^{n
 For each scheme determine whether the scheme is a useful or useless scheme. For the purposes of this exercise only, a scheme will be useless if $\left|v_{m}^{n}\right|$ is greater than
 5 for any value of $m$ and $n .$ It will be regarded as a useful scheme if the solution looks like a reasonable approximation to the solution of the differential equations. Graph or plot several solutions at the last time they were computed. What do you notice about the "blow-up time" for the useless schemes as the mesh size decreases? Is there a pattern to these solutions? For the useful cases, how does the error decrease
 as the mesh decreases; i.e., as $h$ decreases by one-half, by how much does the error decrease?
+
 \subsubsection*{Solution}
 
+\subsubsection*{(a) Forward Time, Backward Space}
+
+Figure (1) shows this scheme. Notice that the approximate solution dampens to zero (see video, emailed). For $h=1/10$, it hits zero by about 0.72 seconds. For $h=1/20$, it hits zero by about 0.36 seconds. For $h=1/40$, it hits zero by about 0.18 seconds. As the density of the mesh doubles, it converges twice as quickly. Error?
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_h_one_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/a_forward_time_backward_space_h_one_40th.png}
+	\caption{Forward time, backward space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
+\end{figure}
+
+\subsubsection*{(b) Forward Time, Central Space}
+
+Figure (2) shows this scheme. Notice that the approximate solution explodes to infinity  (see video, emailed). For $h=1/10$, the solution exceeds a value of 5 after about 1.76 seconds. For $h=1/20$, the solution exceeds 5 after about 1.2 seconds. For $h=1/40$, the solution passes 5 after about .72 seconds. As the density of the mesh doubles, the solution becomes useless more quickly.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_h_one_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/b_forward_time_central_space_h_one_40th.png}
+	\caption{Forward time, central space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
+\end{figure}
+
+\subsubsection*{(c) Lax-Friedrichs}
+
+Figure (3) shows this scheme. Notice that the approximate solution explodes to infinity (see video, emailed). For $h=1/10$, the solution exceeds a value of 5 after about 1.6 seconds. For $h=1/20$, the solution exceeds 5 after about 1.12 seconds. For $h=1/40$, the solution passes 5 after about .72 seconds. As the density of the mesh doubles, the solution becomes useless more quickly, in a similar scale to the forward time/central space scheme.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_h_one_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/c_lax_friedrichs_h_one_40th.png}
+	\caption{Lax-Friedrichs at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
+\end{figure}
+
+\subsubsection*{(d) Leapfrog}
+
+Figure (4) shows this scheme. Notice that the approximate solution dampens to zero (see video, emailed). For $h=1/10$, it hits zero by about 0.72 seconds, like the forward time, backward space scheme. For $h=1/20$, it hits zero by about 0.36 seconds. For $h=1/40$, it hits zero by about 0.18 seconds. Just like (a), as the mesh density doubles, the time to convergence halves. Error? 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_h_one_10th.png}	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_h_one_20th.png}
+	\includegraphics[width=.6\linewidth]{./code/d_leapfrog_h_one_40th.png}
+	\caption{Forward time, backward space scheme at $t=2.4$ for $h-1/10, h=1/20$, and $h=1/40$, respectively}
+\end{figure}
+
 \section*{1.4.2}
+
+Show that the leapfrog scheme is consistent with the one-way wave equation.
+
 \subsubsection*{Solution}
 
 \section*{1.5.1}
+
+Show that schemes of the form
+$$
+u_{m}^{n+1}=\alpha u_{m+1}^{n}+\beta u_{m-1}^{n}
+$$
+are stable if $|\alpha|+|\beta|$ is less than or equal to 1. Conclude that the Lax-Friedrichs scheme is stable if $|a \lambda|$ is less than or equal to 1 .
+
+
 \subsubsection*{Solution}
 
 \section*{MATLAB Command Comments}
 
 
 \end{document}
+
+
+
+
+
+
+
+
+

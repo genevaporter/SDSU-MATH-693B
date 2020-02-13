@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2019.12.20)  10 FEB 2020 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2019.12.20)  12 FEB 2020 16:32
 entering extended mode
 **./main.tex
 (main.tex
@@ -78,58 +78,241 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \mathdisplay@stack=\toks18
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/12/07 v1.0i Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
-[1
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count99
+\scratchdimen=\dimen114
+\scratchbox=\box28
+\nofMPsegments=\count100
+\nofMParguments=\count101
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count102
+\MPscratchDim=\dimen115
+\MPnumerator=\count103
+\makeMPintoPDFobject=\count104
+\everyMPtoPDFconversion=\toks21
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-{C:/Users/genev/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-! LaTeX Error: Something's wrong--perhaps a missing \item.
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.89 	\begin{enumerate}
-                       
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-[2] [3] (main.aux) ) 
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\iftex\iftex.sty"
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+) [1
+
+{C:/Users/genev/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+<./code/a_forward_time_backward_space_h_one_10th.png, id=16, 421.575pt x 316.06
+08pt>
+File: ./code/a_forward_time_backward_space_h_one_10th.png Graphic file (type pn
+g)
+<use ./code/a_forward_time_backward_space_h_one_10th.png>
+Package pdftex.def Info: ./code/a_forward_time_backward_space_h_one_10th.png  u
+sed on input line 114.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/a_forward_time_backward_space_h_one_20th.png, id=17, 421.575pt x 316.06
+08pt>
+File: ./code/a_forward_time_backward_space_h_one_20th.png Graphic file (type pn
+g)
+<use ./code/a_forward_time_backward_space_h_one_20th.png>
+Package pdftex.def Info: ./code/a_forward_time_backward_space_h_one_20th.png  u
+sed on input line 114.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/a_forward_time_backward_space_h_one_40th.png, id=18, 421.575pt x 316.06
+08pt>
+File: ./code/a_forward_time_backward_space_h_one_40th.png Graphic file (type pn
+g)
+<use ./code/a_forward_time_backward_space_h_one_40th.png>
+Package pdftex.def Info: ./code/a_forward_time_backward_space_h_one_40th.png  u
+sed on input line 115.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+
+
+LaTeX Warning: Float too large for page by 21.80531pt on input line 117.
+
+<./code/b_forward_time_central_space_h_one_10th.png, id=19, 421.575pt x 316.060
+8pt>
+File: ./code/b_forward_time_central_space_h_one_10th.png Graphic file (type png
+)
+<use ./code/b_forward_time_central_space_h_one_10th.png>
+Package pdftex.def Info: ./code/b_forward_time_central_space_h_one_10th.png  us
+ed on input line 125.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/b_forward_time_central_space_h_one_20th.png, id=20, 421.575pt x 316.060
+8pt>
+File: ./code/b_forward_time_central_space_h_one_20th.png Graphic file (type png
+)
+<use ./code/b_forward_time_central_space_h_one_20th.png>
+Package pdftex.def Info: ./code/b_forward_time_central_space_h_one_20th.png  us
+ed on input line 125.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/b_forward_time_central_space_h_one_40th.png, id=21, 421.575pt x 316.060
+8pt>
+File: ./code/b_forward_time_central_space_h_one_40th.png Graphic file (type png
+)
+<use ./code/b_forward_time_central_space_h_one_40th.png>
+Package pdftex.def Info: ./code/b_forward_time_central_space_h_one_40th.png  us
+ed on input line 126.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+
+LaTeX Warning: Float too large for page by 21.80531pt on input line 128.
+
+<./code/c_lax_friedrichs_h_one_10th.png, id=22, 421.575pt x 316.0608pt>
+File: ./code/c_lax_friedrichs_h_one_10th.png Graphic file (type png)
+<use ./code/c_lax_friedrichs_h_one_10th.png>
+Package pdftex.def Info: ./code/c_lax_friedrichs_h_one_10th.png  used on input 
+line 136.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/c_lax_friedrichs_h_one_20th.png, id=23, 421.575pt x 316.0608pt>
+File: ./code/c_lax_friedrichs_h_one_20th.png Graphic file (type png)
+<use ./code/c_lax_friedrichs_h_one_20th.png>
+Package pdftex.def Info: ./code/c_lax_friedrichs_h_one_20th.png  used on input 
+line 136.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/c_lax_friedrichs_h_one_40th.png, id=24, 421.575pt x 316.0608pt>
+File: ./code/c_lax_friedrichs_h_one_40th.png Graphic file (type png)
+<use ./code/c_lax_friedrichs_h_one_40th.png>
+Package pdftex.def Info: ./code/c_lax_friedrichs_h_one_40th.png  used on input 
+line 137.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+
+LaTeX Warning: Float too large for page by 21.13863pt on input line 139.
+
+[3] [4 <./code/a_forward_time_backward_space_h_one_10th.png (PNG copy)> <./code
+/a_forward_time_backward_space_h_one_20th.png (PNG copy)> <./code/a_forward_tim
+e_backward_space_h_one_40th.png (PNG copy)>] [5 <./code/b_forward_time_central_
+space_h_one_10th.png (PNG copy)> <./code/b_forward_time_central_space_h_one_20t
+h.png (PNG copy)> <./code/b_forward_time_central_space_h_one_40th.png (PNG copy
+)>] [6 <./code/c_lax_friedrichs_h_one_10th.png (PNG copy)> <./code/c_lax_friedr
+ichs_h_one_20th.png (PNG copy)> <./code/c_lax_friedrichs_h_one_40th.png (PNG co
+py)>]
+<./code/d_leapfrog_h_one_10th.png, id=38, 421.575pt x 316.0608pt>
+File: ./code/d_leapfrog_h_one_10th.png Graphic file (type png)
+<use ./code/d_leapfrog_h_one_10th.png>
+Package pdftex.def Info: ./code/d_leapfrog_h_one_10th.png  used on input line 1
+47.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/d_leapfrog_h_one_20th.png, id=39, 421.575pt x 316.0608pt>
+File: ./code/d_leapfrog_h_one_20th.png Graphic file (type png)
+<use ./code/d_leapfrog_h_one_20th.png>
+Package pdftex.def Info: ./code/d_leapfrog_h_one_20th.png  used on input line 1
+47.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+<./code/d_leapfrog_h_one_40th.png, id=40, 421.575pt x 316.0608pt>
+File: ./code/d_leapfrog_h_one_40th.png Graphic file (type png)
+<use ./code/d_leapfrog_h_one_40th.png>
+Package pdftex.def Info: ./code/d_leapfrog_h_one_40th.png  used on input line 1
+48.
+(pdftex.def)             Requested size: 234.00238pt x 175.4351pt.
+
+
+LaTeX Warning: Float too large for page by 21.80531pt on input line 150.
+
+[7] [8 <./code/d_leapfrog_h_one_10th.png (PNG copy)> <./code/d_leapfrog_h_one_2
+0th.png (PNG copy)> <./code/d_leapfrog_h_one_40th.png (PNG copy)>] (main.aux) )
+ 
 Here is how much of TeX's memory you used:
- 849 strings out of 493312
- 9628 string characters out of 3138898
- 70020 words of memory out of 3000000
- 4454 multiletter control sequences out of 15000+200000
+ 2157 strings out of 493312
+ 30707 string characters out of 3138898
+ 91528 words of memory out of 3000000
+ 5684 multiletter control sequences out of 15000+200000
  9626 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,11n,20p,440b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmsy8.pfb>
-Output written on main.pdf (3 pages, 104896 bytes).
+ 41i,11n,25p,460b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+>
+Output written on main.pdf (8 pages, 423884 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
