@@ -4,27 +4,106 @@
 
 %\setlength\parindent{20pt} %% Do not touch this
 
-\title{Homework 1} 
+\title{Homework 2} 
 
 \author{Geneva Porter\\ 
 MATH-693B Numerical Partial Differential Equations\\}
 
-\date{February 10, 2020} 
+\date{February 27, 2020} 
 \begin{document}
 \maketitle
 
 \section*{2.1.4}
 Use an argument similar to that used in $(2.1 .11)$ to show that the initial value problem for the equation $u_{t}=u_{x x x}$ is well-posed.
 
+\subsubsection*{Solution}
+
+Definition 1.5.2 states that \textit{The initial value problem for the first-order partial differential equation $Pu=0$ is well-posed if for any time T $\geq 0$, there is a constant $C_T$ such that any solution $u(t,x)$ satisfies}
+
+$$ \int_{-\infty}^\infty |u(t,x)|^2~dx \leq C_T\int_{-\infty}^\infty |u(0,x)|^2~dx $$
+
+\noindent We can extend this to the third order partial differential equation given above. We first transform only the spatial variable, yielding:
+
+$$ \hat{u}_t = (i\omega)^3\hat{u} = -i\omega^3\hat{u}$$
+
+\noindent Using the initial data, the solution must be:
+
+$$ \hat{u}(x,\omega) = e^{-i\omega^3t}\hat{u}_0(\omega) $$
+
+\noindent Like in Strikwerda's example, we use $|e^{-i\omega^3t}|=1$ and Parseval's relation to show:
+
+\begin{equation*}
+    \begin{aligned}
+    \int_{-\infty}^\infty |u(t,x)|^2~dx & = \int_{-\infty}^\infty |\hat{u}(t,\omega)|^2~d\omega \\
+    ~ &= \int_{-\infty}^\infty |e^{-i\omega^3t}\hat{u}(0, \omega)|^2~d\omega \\
+    ~ &= \int_{-\infty}^\infty |\hat{u}(0, \omega)|^2~d\omega \\
+    ~ &= \int_{-\infty}^\infty |u(0, x)|^2~dx ~~~~ \longrightarrow \\
+    \int_{-\infty}^\infty |u(t,x)|^2~dx & \leq C_T\int_{-\infty}^\infty |u(0,x)|^2~dx ~~~ \forall ~C_T \geq 1
+    \end{aligned}
+\end{equation*}
+
+\noindent Thus, the initial value problem is considered well-posed.
+
 \section*{2.1.5}
 Use an argument similar to that used in $(2.1 .11)$ to show that the initial value problem for the equation $u_{t}+u_{x}+b u=0$ is well-posed.
 
+\subsubsection*{Solution}
+
+This solution follows from 2.1.4 in a similar fashion. First, we transform the spatial components:
+
+$$ \hat{u}_t = -u_x-b_u = -i\omega\hat{u} -b \hat{u} = -(i\omega + b)\hat{u}$$
+
+\noindent Using the initial data, the solution must be:
+
+$$ \hat{u}(x,\omega) = e^{-(i\omega + b)t}\hat{u}_0(\omega) $$
+
+\noindent Now using $|e^{-(i\omega + b)t}|=1$ and Parseval's relation gives us:
+
+\begin{equation*}
+    \begin{aligned}
+    \int_{-\infty}^\infty |u(t,x)|^2~dx & = \int_{-\infty}^\infty |\hat{u}(t,\omega)|^2~d\omega \\
+    ~ &= \int_{-\infty}^\infty |e^{-(i\omega + b)t}\hat{u}(0, \omega)|^2~d\omega \\
+    ~ &= \int_{-\infty}^\infty |\hat{u}(0, \omega)|^2~d\omega \\
+    ~ &= \int_{-\infty}^\infty |u(0, x)|^2~dx ~~~~ \longrightarrow \\
+    \int_{-\infty}^\infty |u(t,x)|^2~dx & \leq C_T\int_{-\infty}^\infty |u(0,x)|^2~dx ~~~ \forall ~C_T \geq 1
+    \end{aligned}
+\end{equation*}
+
+\noindent Again, the initial value problem is considered well-posed.
+
 \section*{2.2.1}
-Show that the backward-time central-space scheme (1.6.1) is consistent with cquation $(1.1 .1)$ and is unconditionally stable.
+Show that the backward-time central-space scheme (1.6.1) is consistent with equation $(1.1 .1)$ and is unconditionally stable.
+
+\subsubsection*{Solution}
+
+The backward-time central-space scheme for $u_t+au_x=0$ is given by:
+
+$$ \frac{u_{m}^{n+1}-u_{m}^{n}}{k} + a\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2h} = 0 $$
+
+\noindent Separating the $n$ and $n+1$ terms, we get:
+
+$$ u^{n+1}_{m} + \frac{a\lambda}{2}u^{n+1}_{m+1} - \frac{a\lambda}{2}u^{n+1}_{m-1} = u^{n}_{m} $$
+
+To show consistency and stability, we first use the Fourier transform on each of the terms $u^{n+1}_{m},u^{n}_{m},u^{n+1}_{m+1},u^{n+1}_{m-1}$.
+
+\begin{equation*}
+    \begin{aligned}
+    \hat{u}^{n+1}_{m} &= \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n+1}(\xi)~d\xi\\
+    \hat{u}^{n+1}_{m+1} &= \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}e^{ih\xi}\hat{u}^{n+1}(\xi)~d\xi\\
+    \hat{u}^{n+1}_{m-1} &= \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}e^{-ih\xi}\hat{u}^{n+1}(\xi)~d\xi\\
+    \hat{u}^{n}_{m} &= \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n}(\xi)~d\xi
+    \end{aligned}
+\end{equation*}
+
+
+
+
 
 \section*{2.2.4}
 $\frac{1}{2 k}\left[\left(v_{m}^{n+1}+v_{m+1}^{n+1}\right)-\left(v_{m}^{n}+v_{m+1}^{n}\right)\right]+\frac{a}{2 h}\left[\left(v_{m+1}^{n+1}-v_{m}^{n+1}\right)+\left(v_{m+1}^{n}-v_{m}^{n}\right)\right]=f_{m}^{n}$
 is consistent with the one-way wave equation $u_{t}+a u_{x}=f$ and is stable for all values of $\lambda$
+
+\subsubsection*{Solution}
 
 \section*{3.2.1}
 Show that the (forward-backward) MacCormack scheme
@@ -35,6 +114,8 @@ $$
 \end{array}
 $$
 is a second-order accurate scheme for the one-way wave cquation $(1.1 .1) .$ Show that for $f=0$ it is identical to the Lax-Wendroff scheme $(3.1 .1)$
+
+\subsubsection*{Solution}
 
 \section*{3.2.3}
 Show that the box scheme
@@ -47,10 +128,14 @@ $$
 $$
 is an approximation to the one-way wave equation $u_{t}+a u_{x}=f$ that is accurate of order $(2,2)$ and is stable for all values of $\lambda$
 
-\section*{3.4.1}
+\subsubsection*{Solution}
+
+\section*{3.4.1 (Numerical)}
 Solve the initial-boundary value problem $(1.2 .1)$ with the leapfrog scheme and the following boundary conditions. Use $a=1 .$ Only (d) should give good results. Why?
 (a) At $x=0,$ specify $u(t, 0) ;$ at $x=1,$ use boundary condition $(3.4 .1 \mathrm{b})$
 (b) At $x=0,$ specify $u(t, 0) ;$ at $x=1,$ specify $u(t, 1)=0$
 (c) At $x=0,$ use boundary condition $(3.4 .1 \mathrm{b}) ;$ at $x=1,$ use $(3.4 .1 \mathrm{c})$
 (d) At $x=0,$ specify $u(t, 0) ;$ at $x=1,$ use boundary condition $(3.4 .1 \mathrm{c})$
 \end{document}
+
+\subsubsection*{Solution}
