@@ -160,7 +160,7 @@ $$
 {\tilde{u}_{m}^{n+1}=u_{m}^{n}-a \lambda\left(u_{m+1}^{n}-u_{m}^{n}\right)+k f_{m}^{n}} \\$$
 
 $$
-{u_{m}^{n+1}=\frac{1}{2}\left(v_{m}^{n}+\tilde{u}_{m}^{n+1}-a \lambda\left(\tilde{u}_{m}^{n+1}-\tilde{u}_{m-1}^{n+1}\right)+k f_{m}^{n+1}\right)}
+{u_{m}^{n+1}=\frac{1}{2}\left(u_{m}^{n}+\tilde{u}_{m}^{n+1}-a \lambda\left(\tilde{u}_{m}^{n+1}-\tilde{u}_{m-1}^{n+1}\right)+k f_{m}^{n+1}\right)}
 $$
 is a second-order accurate scheme for the one-way wave cquation $(1.1 .1) .$ Show that for $f=0$ it is identical to the Lax-Wendroff scheme $(3.1 .1)$
 
@@ -176,11 +176,11 @@ For this case, we start with defining $P$ and $R$ by expanding and combining lik
 
 \begin{equation*}
     \begin{aligned}
-    P_{kh}\phi & = \phi_m^{n+1} + 
-    \phi_{m}^{n}\left[1-a^2\lambda^2\right] + 
-    \phi_{m+1}^{n}\left[\frac{1}{2}(a^2\lambda^2 - a\lambda)\right] + 
+    P_{kh}\phi & = \phi_m^{n+1} - 
+    \phi_{m}^{n} + 
+    \phi_{m+1}^{n}\left[\frac{1}{2}(a\lambda - a^2\lambda^2 )\right] + 
     \phi_{m-1}^{n}\left[\frac{1}{2}(a\lambda + a^2\lambda^2)\right] \\
-     & = f_{m}^{n+1}\left[\frac{1}{2}k\right] +f_{m}^{n}\left[\frac{1}{2}(k-a\lambda k)\right] +f_{m-1}^{n}\left[\frac{1}{2}a\lambda k\right] \\
+     & = f_{m}^{n+1}\left[\frac{1}{2}k\right] +f_{m}^{n}\left[\frac{1}{2}(k-ah)\right] +f_{m-1}^{n}\left[\frac{1}{2}ah\right] \\
      & = R_{kh}f
     \end{aligned}
 \end{equation*}
@@ -201,28 +201,30 @@ For this case, we start with defining $P$ and $R$ by expanding and combining lik
 
 \begin{equation*}
     \begin{aligned}
-    P_{kh}\phi = & \phi_m^n + k\phi_t + \phi_{m}^{n}\left[1-a^2\lambda^2\right] + \left(\phi_m^n + h\phi_x  + \right)\left[\frac{1}{2}(a^2\lambda^2 - a\lambda)\right] +...\\
+    P_{kh}\phi = & (\phi_m^n + k\phi_t) - \phi_{m}^{n} + \left(\phi_m^n + h\phi_x  \right)\left[\frac{1}{2}(a\lambda - a^2\lambda^2)\right] +...\\
     &...+\left(\phi_m^n - h\phi_x \right)\left[\frac{1}{2}(a\lambda + a^2\lambda^2)\right] +\mathcal{O}(k^2) + \mathcal{O}(h^2)\\
-      = &\left(f_m^n + kf_t \right)\left[\frac{1}{2}k\right] + f_{m}^{n}\left[\frac{1}{2}(k-a\lambda k)\right] +\left(f_m^n - hf_x \right)\left[\frac{1}{2}a\lambda k\right] + \mathcal{O}(k^2) + \mathcal{O}(h^2)\\
+      = &\left(f_m^n + kf_t \right)\left[\frac{1}{2}k\right] + f_{m}^{n}\left[\frac{1}{2}(k-ah)\right] +\left(f_m^n - hf_x \right)\left[\frac{1}{2}ah\right] + \mathcal{O}(k^2) + \mathcal{O}(h^2)\\
       =& R_{kh}f
     \end{aligned}
 \end{equation*}
 
-\noindent And this simplifies to
+\noindent Now we have
+$$ P_{kh}\phi = k\phi_t + ak\phi_{x} + \mathcal{O}(k^2) + \mathcal{O}(h^2)  ~~~ \longrightarrow ~~~ P_{kh}\phi = k\phi_t + ak\phi_{x} + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
 
-$$  k\phi_t - a\lambda h\phi_{x} + \mathcal{O}(k^2) + \mathcal{O}(h^2)= kf + \frac{1}{2}k^2f_t  - \frac{1}{2}a\lambda khf_x  + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
+\noindent and
+$$ R_{kh}f = kf + \frac{1}{2}k^2f_t  - \frac{1}{2}a\lambda khf_x  + \mathcal{O}(k^2) + \mathcal{O}(h^2) $$
 
 \noindent Now we can make the substitutions for the one-way wave equation
-
 $$ f = \phi_t + a\phi_x ~~~~~~ f_t = \phi_{tt} + a\phi_{xt} ~~~~~~  f_x = \phi_{tx} + a\phi_{xx} $$
 
-\noindent Now we plug into the expression $P_{kh}\phi - R_{kh}P\phi$, with $P\phi$ being the one-way wave equation:
+\noindent This leads to
+$$ R_{kh}P\phi = k(\phi_t + a\phi_x) + \frac{1}{2}k^2(\phi_{tt} + a\phi_{xt})  - \frac{1}{2}ah^2(\phi_{tx} + a\phi_{xx})  + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
 
-$$  k\phi_t - a\lambda h\phi_{x} - k(\phi_t + a\phi_x) + \frac{1}{2}k^2(\phi_{tt} + a\phi_{xt})  - \frac{1}{2}a\lambda kh(\phi_{tx} + a\phi_{xx})  + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
+$$ \longrightarrow  R_{kh}P\phi = k\phi_t + ka\phi_x + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
 
-\noindent From here we can see that as $k,h\to 0$, $P_{kh}(\phi) - R_{kh}P\phi\to \mathcal{O}(k^2) + \mathcal{O}(h^2)$. Therefore, the scheme is second order accurate.
+\noindent This matches our definition. Since $P_{kh}\phi = R_{kh}O\phi$, the scheme is second order accurate.
 
-If $f=0$, then we would have 
+If $f=0$, then this scheme would look like:
 
 $$
 u_{m}^{n+1}=\frac{1}{2}\left\{u_{m}^{n}+\left[u_{m}^{n}-a \lambda(u_{m+1}^{n}-u_{m}^{n})\right]   (1 - a\lambda)  -a \lambda\left[-(u_{m-1}^{n}-a \lambda(u_{m}^{n}-u_{m-1}^{n}))\right]\right\} 
@@ -260,7 +262,7 @@ This is going to be a long one. First, I find it easiest to define $P_{kh}\phi$ 
     \begin{aligned}
     P_{kh}\phi & = \phi_m^{n+1}[1-a\lambda] + 
     \phi_{m+1}^{n+1}[1+a\lambda] + 
-    \phi_{m}^{n}[-1-a\Lambda] + 
+    \phi_{m}^{n}[-1-a\lambda] + 
     \phi_{m+1}^{n}[-1+a\lambda] \\
      & = f_{m}^{n+1}\left[\frac{k}{2}\right] +f_{m+1}^{n+1}\left[\frac{k}{2}\right] +f_{m}^{n}\left[\frac{k}{2}\right] f_{m+1}^{n}\left[\frac{k}{2}\right] = R_{kh}f
     \end{aligned}
@@ -283,25 +285,64 @@ This is going to be a long one. First, I find it easiest to define $P_{kh}\phi$ 
     \begin{aligned}
     &(\phi_m^n + k\phi_t)[1-a\lambda] + 
     (\phi_m^n + k\phi_t + h\phi_x)[1+a\lambda] + 
-    \phi_{m}^{n}[-1-a\Lambda] + 
+    \phi_{m}^{n}[-1-a\lambda] + 
     (\phi_m^n + h\phi_x)[-1+a\lambda] \\
      &= (f_m^n + kf_t)\left[\frac{k}{2}\right] +
-     (f_m^n + kf_t + +hf_x)\left[\frac{k}{2}\right] +
+     (f_m^n + kf_t + hf_x)\left[\frac{k}{2}\right] +
      f_{m}^{n}\left[\frac{k}{2}\right] 
      (f_m^n + hf_x)\left[\frac{k}{2}\right]+\mathcal{O}(k^2)+ \mathcal{O}(h^2)
     \end{aligned}
 \end{equation*}
 
 \noindent which simplifies to
+$$ (2k)\phi_t + (2ka)\phi_x = (2k)f + (k^2)f_t + (hk)f_x +\mathcal{O}(k^2)+ \mathcal{O}(h^2)$$
+
+\noindent Plugging this into $P_{kh}\phi - R_{kh}P\phi$ for the one-way wave equation yields:
+$$ (k^2)\phi_{tt} + (hka)\phi_{xx} + (hk)\phi_{tx}+ (k^2a)\phi_{xt}= \mathcal{O}(k^2)+ \mathcal{O}(h^2)$$
+
+\noindent which we can see is solely comprised of higher order terms, this showing that this scheme has second order accuracy.
 
 
-
+\pagebreak
 \section*{3.4.1 (Numerical)}
 Solve the initial-boundary value problem $(1.2 .1)$ with the leapfrog scheme and the following boundary conditions. Use $a=1 .$ Only (d) should give good results. Why?
+
 (a) At $x=0,$ specify $u(t, 0) ;$ at $x=1,$ use boundary condition $(3.4 .1 \mathrm{b})$
+
 (b) At $x=0,$ specify $u(t, 0) ;$ at $x=1,$ specify $u(t, 1)=0$
+
 (c) At $x=0,$ use boundary condition $(3.4 .1 \mathrm{b}) ;$ at $x=1,$ use $(3.4 .1 \mathrm{c})$
+
 (d) At $x=0,$ specify $u(t, 0) ;$ at $x=1,$ use boundary condition $(3.4 .1 \mathrm{c})$
+
+\subsubsection*{Solution}
+
+Problem 1.2.1 states:
+
+Consider system (1.2.2) on the interval [0, 1], with $a$ equal to 0 and $b$ equal to 1 and with the boundary conditions $u^{1}$ equal to 0 at the left and $u^{1}$ equal to 1 at the right boundary. Show that if the initial data are given by $u^{1}(0, x)=x$ and $u^{2}(0, x)=1,$ then the solution is $u^{1}(t, x)=x$ and $u^{2}(t, x)=1-t$ for all $(t, x)$ with $0 \leq x \leq 1$ and $0 \leq t$
+
+System (1.2.2) is given by:
+
+$$
+\left(\begin{array}{l}
+u^{1} \\
+u^{2}
+\end{array}\right)_{t}+\left(\begin{array}{ll}
+1 & 1 \\
+1 & 1
+\end{array}\right)\left(\begin{array}{l}
+u^{1} \\
+u^{2}
+\end{array}\right)_{x}=0
+$$
+
+And the leapfrog scheme is given by:
+
+$$
+\frac{u_{m}^{n+1}-u_{m}^{n-1}}{2 k}+a \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2 h}=0
+$$
+
+
 \end{document}
 
 \subsubsection*{Solution}
