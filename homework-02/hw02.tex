@@ -95,40 +95,206 @@ To show consistency and stability, we first use the Fourier transform on each of
     \end{aligned}
 \end{equation*}
 
+\noindent Plugging these values into the backward-time central-space scheme, we have:
+$$ \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n+1}(\xi)~d\xi~+~ \frac{a\lambda}{2\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}e^{ih\xi}\hat{u}^{n+1}(\xi)~d\xi ~-~$$
+$$\frac{a\lambda}{2\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}e^{-ih\xi}\hat{u}^{n+1}(\xi)~d\xi ~=~ \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n}(\xi)~d\xi $$
 
+\noindent Combining like terms can simplify the equation:
 
+$$ \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n+1}(\xi)\left[1+\frac{a\lambda}{2}e^{1h\xi} - \frac{a\lambda}{2}e^{-ih\xi}\right]~d\xi = 
+\frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n}(\xi)~d\xi$$
+
+\noindent Now we can suggest that since the integrals are equal, their contents are equal as well. Simplifying further, we get:
+
+$$ \hat{u}^{n+1}(\xi) = \frac{1}{1+\frac{a\lambda}{2}e^{ih\xi} - \frac{a\lambda}{2}e^{-ih\xi}} \hat{u}^{n}(\xi) = g(h\xi) \hat{u}^{n+1}(\xi) $$
+
+In order to determine stability, we must set $|g(h\xi)|\leq 0$ and evaluate under what conditions this is true. It is first helpful to replace $h\xi$ with $\theta$, and expand $g(\theta)$ into its sine and cosine parts. This leaves us with
+
+$$ \left|\frac{1}{1+ia\lambda\sin\theta}\right|\leq1 ~~~\longrightarrow ~~~ 1\leq |1+ia\lambda\sin|^2 ~~~ \longrightarrow ~~~ 0\leq a^2\lambda^2\sin^2 ~~~ \longrightarrow |a\lambda\sin\theta| \geq 0 $$
+
+\noindent Since the inequality holds for all values of $\lambda$, the scheme is unconditionally stable.
 
 
 \section*{2.2.4}
-$\frac{1}{2 k}\left[\left(v_{m}^{n+1}+v_{m+1}^{n+1}\right)-\left(v_{m}^{n}+v_{m+1}^{n}\right)\right]+\frac{a}{2 h}\left[\left(v_{m+1}^{n+1}-v_{m}^{n+1}\right)+\left(v_{m+1}^{n}-v_{m}^{n}\right)\right]=f_{m}^{n}$
-is consistent with the one-way wave equation $u_{t}+a u_{x}=f$ and is stable for all values of $\lambda$
+Show that the box scheme
+$$\frac{1}{2 k}\left[\left(u_{m}^{n+1}+u_{m+1}^{n+1}\right)-\left(u_{m}^{n}+u_{m+1}^{n}\right)\right]+\frac{a}{2 h}\left[\left(u_{m+1}^{n+1}-u_{m}^{n+1}\right)+\left(u_{m+1}^{n}-u_{m}^{n}\right)\right]=f_{m}^{n}$$
+
+\noindent is consistent with the one-way wave equation $u_{t}+a u_{x}=f$ and is stable for all values of $\lambda$.
 
 \subsubsection*{Solution}
+
+Like the previous solution, we use the Fourier transform substitutes for values of $u$ and plug them into the give scheme. After combining like terms and separating $u^n$ from $u^{n+1}$ values, we get:
+
+$$ 
+u_{m}^{n+1}\left[\frac{1}{2} - \frac{a\lambda}{2}\right] + 
+u_{m+1}^{n+1}\left[\frac{1}{2} + \frac{a\lambda}{2}\right] = f_{mn} + 
+u_{m}^{n}\left[\frac{1}{2} + \frac{a\lambda}{2}\right] + 
+u_{m+1}^{n}\left[\frac{1}{2} - \frac{a\lambda}{2}\right] $$
+
+\noindent Now using Fourier transforms:
+
+$$ \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n+1}(\xi)\left[\frac{1}{2} - \frac{a\lambda}{2}+e^{-ih\xi}\left(\frac{1}{2} + \frac{a\lambda}{2}\right)\right]~d\xi = $$
+$$ f_{mn} + \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n}(\xi)\left[\frac{1}{2} + \frac{a\lambda}{2}+e^{-ih\xi}\left(\frac{1}{2} - \frac{a\lambda}{2}\right)\right]~d\xi $$
+
+\noindent Neglecting the $f_{mn}$ term and assuming the integrands are equal, we get:
+
+$$\hat{u}^{n+1}(\xi) = \frac{1 + {a\lambda} + e^{-ih\xi}\left(1 - a\lambda\right)}{1 - {a\lambda} + e^{ih\xi}\left(1+ {a\lambda}\right)}\hat{u}^n(\xi) = g(\h\xi)\hat{u}^n$$
+
+\noindent For stability, we need $|g(h\xi)|\leq1$. Replacing $h\xi$ with $\theta$, we can form  the inequality:
+
+$$\left|1 + {a\lambda} + e^{-\theta}\left(1 - a\lambda\right)\right|^2 \leq \left|1 - {a\lambda} + e^{i\theta}\left(1+ {a\lambda}\right)\right|^2$$
+
+\noindent Squaring the real and non-real values, we get:
+
+$$ [(1+a\lambda)+(1-a\lambda)\cos\theta]^2 + [-(1-a\lambda)\sin\theta]^2 \leq [(1-a\lambda)+(1+a\lambda)\cos\theta]^2 + [(1+a\lambda)\sin\theta]^2$$
+
+\noindent After expanding, this simplifies quite nicely to
+
+$$ (1-a\lambda)^2 \leq (1+a\lambda)^2 $$
+
+\noindent Which is always true for all $a\lambda \geq 0$. Since $a\lambda$ is assumed to be non-negative, this scheme is stable for all $\lambda$.
 
 \section*{3.2.1}
 Show that the (forward-backward) MacCormack scheme
 $$
-\begin{array}{l}
-{\tilde{v}_{m}^{n+1}=v_{m}^{n}-a \lambda\left(v_{m+1}^{n}-v_{m}^{n}\right)+k f_{m}^{n}} \\
-{v_{m}^{n+1}=\frac{1}{2}\left(v_{m}^{n}+\tilde{v}_{m}^{n+1}-a \lambda\left(\tilde{v}_{m}^{n+1}-\tilde{v}_{m-1}^{n+1}\right)+k f_{m}^{n+1}\right)}
-\end{array}
+{\tilde{u}_{m}^{n+1}=u_{m}^{n}-a \lambda\left(u_{m+1}^{n}-u_{m}^{n}\right)+k f_{m}^{n}} \\$$
+
+$$
+{u_{m}^{n+1}=\frac{1}{2}\left(v_{m}^{n}+\tilde{u}_{m}^{n+1}-a \lambda\left(\tilde{u}_{m}^{n+1}-\tilde{u}_{m-1}^{n+1}\right)+k f_{m}^{n+1}\right)}
 $$
 is a second-order accurate scheme for the one-way wave cquation $(1.1 .1) .$ Show that for $f=0$ it is identical to the Lax-Wendroff scheme $(3.1 .1)$
 
 \subsubsection*{Solution}
 
+To show that a scheme is accurate, we use definition 3.1.1., which states that \textit{a scheme $P_{k, h} u=R_{k, h} f$ that is consistent with the differential equation $P u=f$ is accurate of order $p$ in time and order $q$ in space if for any smooth function $\phi(t, x)$
+$$
+P_{k . h} \phi-R_{k, h} P \phi=\mathcal{O}\left(k^{\rho}\right)+\mathcal{O}\left(h^{q}\right)
+$$
+We say that such a scheme is accurate of order $(p, q)$}. 
+
+For this case, we start with defining $P$ and $R$ by expanding and combining like terms, involving a fair amount of algebra when plugging the first step into the second.
+
+\begin{equation*}
+    \begin{aligned}
+    P_{kh}\phi & = \phi_m^{n+1} + 
+    \phi_{m}^{n}\left[1-a^2\lambda^2\right] + 
+    \phi_{m+1}^{n}\left[\frac{1}{2}(a^2\lambda^2 - a\lambda)\right] + 
+    \phi_{m-1}^{n}\left[\frac{1}{2}(a\lambda + a^2\lambda^2)\right] \\
+     & = f_{m}^{n+1}\left[\frac{1}{2}k\right] +f_{m}^{n}\left[\frac{1}{2}(k-a\lambda k)\right] +f_{m-1}^{n}\left[\frac{1}{2}a\lambda k\right] \\
+     & = R_{kh}f
+    \end{aligned}
+\end{equation*}
+
+\noindent Now we take a Taylor expansion for each term. The Taylor expansion for each term is give by:
+
+\begin{equation*}
+\begin{aligned}
+	\phi_m^{n+1} = \phi_m^n + k\phi_t + \mathcal{O}(k^2)\\
+	\phi_{m+1}^n = \phi_m^n + h\phi_x + \mathcal{O}(h^2)\\
+	\phi_{m-1}^n = \phi_m^n - h\phi_x + \mathcal{O}(h^2)\\
+	f_m^{n+1} = f_m^n + kf_t + \mathcal{O}(k^2)\\
+	f_{m-1}^n = f_m^n - hf_x + \ \mathcal{O}(h^2)
+\end{aligned}
+\end{equation*}
+
+\noindent Now, we make a long substitution:
+
+\begin{equation*}
+    \begin{aligned}
+    P_{kh}\phi = & \phi_m^n + k\phi_t + \phi_{m}^{n}\left[1-a^2\lambda^2\right] + \left(\phi_m^n + h\phi_x  + \right)\left[\frac{1}{2}(a^2\lambda^2 - a\lambda)\right] +...\\
+    &...+\left(\phi_m^n - h\phi_x \right)\left[\frac{1}{2}(a\lambda + a^2\lambda^2)\right] +\mathcal{O}(k^2) + \mathcal{O}(h^2)\\
+      = &\left(f_m^n + kf_t \right)\left[\frac{1}{2}k\right] + f_{m}^{n}\left[\frac{1}{2}(k-a\lambda k)\right] +\left(f_m^n - hf_x \right)\left[\frac{1}{2}a\lambda k\right] + \mathcal{O}(k^2) + \mathcal{O}(h^2)\\
+      =& R_{kh}f
+    \end{aligned}
+\end{equation*}
+
+\noindent And this simplifies to
+
+$$  k\phi_t - a\lambda h\phi_{x} + \mathcal{O}(k^2) + \mathcal{O}(h^2)= kf + \frac{1}{2}k^2f_t  - \frac{1}{2}a\lambda khf_x  + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
+
+\noindent Now we can make the substitutions for the one-way wave equation
+
+$$ f = \phi_t + a\phi_x ~~~~~~ f_t = \phi_{tt} + a\phi_{xt} ~~~~~~  f_x = \phi_{tx} + a\phi_{xx} $$
+
+\noindent Now we plug into the expression $P_{kh}\phi - R_{kh}P\phi$, with $P\phi$ being the one-way wave equation:
+
+$$  k\phi_t - a\lambda h\phi_{x} - k(\phi_t + a\phi_x) + \frac{1}{2}k^2(\phi_{tt} + a\phi_{xt})  - \frac{1}{2}a\lambda kh(\phi_{tx} + a\phi_{xx})  + \mathcal{O}(k^2) + \mathcal{O}(h^2)$$
+
+\noindent From here we can see that as $k,h\to 0$, $P_{kh}(\phi) - R_{kh}P\phi\to \mathcal{O}(k^2) + \mathcal{O}(h^2)$. Therefore, the scheme is second order accurate.
+
+If $f=0$, then we would have 
+
+$$
+u_{m}^{n+1}=\frac{1}{2}\left\{u_{m}^{n}+\left[u_{m}^{n}-a \lambda(u_{m+1}^{n}-u_{m}^{n})\right]   (1 - a\lambda)  -a \lambda\left[-(u_{m-1}^{n}-a \lambda(u_{m}^{n}-u_{m-1}^{n}))\right]\right\} 
+$$
+$$\longrightarrow u_m^{n+1} = 
+    u_{m}^{n}\left[1-a^2\lambda^2\right] + 
+    u_{m+1}^{n}\left[\frac{1}{2}(a^2\lambda^2 -a\lambda)\right] + 
+    u_{m-1}^{n}\left[\frac{1}{2}(a\lambda + a^2\lambda^2)\right]  $$
+
+
+\noindent And compared with the Lax-Wendroff scheme, which is
+$$
+\begin{aligned}
+u_{m}^{n+1}=& u_{m}^{n}-\frac{a \lambda}{2}\left(u_{m+1}^{n}-u_{m-1}^{n}\right)+\frac{a^{2} \lambda^{2}}{2}\left(u_{m+1}^{n}-2 u_{m}^{n}+u_{m-1}^{n}\right)
+\end{aligned}
+$$
+$$\longrightarrow u_m^{n+1} = u_m^n\left[1-a^2\lambda^2\right] + u_{m+1}^n\left[\frac{a^2\lambda^2}{2} - \frac{a\lambda}{2}\right] + u_{m-1}^n\left[\frac{a\lambda}{2} + \frac{a^2\lambda^2}{2}\right] $$
+
+\noindent which are equal in this instance.
+
 \section*{3.2.3}
 Show that the box scheme
 $$
-\begin{array}{l}
-{\frac{1}{2 k}\left[\left(v_{m}^{n+1}+v_{m+1}^{n+1}\right)-\left(v_{m}^{n}+v_{m+1}^{n}\right)\right]} \\
-{\quad+\frac{a}{2 h}\left[\left(v_{m+1}^{n+1}-v_{m}^{n+1}\right)+\left(v_{m+1}^{n}-v_{m}^{n}\right)\right]} \\
-{=\frac{1}{4}\left(f_{m+1}^{n+1}+f_{m}^{n+1}+f_{m+1}^{n}+f_{m}^{n}\right)}
-\end{array}
-$$
+\frac{1}{2 k}\left[\left(v_{m}^{n+1}+v_{m+1}^{n+1}\right)-\left(v_{m}^{n}+v_{m+1}^{n}\right)\right]
+\quad+\frac{a}{2 h}\left[\left(v_{m+1}^{n+1}-v_{m}^{n+1}\right)+\left(v_{m+1}^{n}-v_{m}^{n}\right)\right]
+=$$
+$$\frac{1}{4}\left(f_{m+1}^{n+1}+f_{m}^{n+1}+f_{m+1}^{n}+f_{m}^{n}\right)$$
 is an approximation to the one-way wave equation $u_{t}+a u_{x}=f$ that is accurate of order $(2,2)$ and is stable for all values of $\lambda$
 
 \subsubsection*{Solution}
+
+This is going to be a long one. First, I find it easiest to define $P_{kh}\phi$ and $R_{kh}f$ first:
+
+\begin{equation*}
+    \begin{aligned}
+    P_{kh}\phi & = \phi_m^{n+1}[1-a\lambda] + 
+    \phi_{m+1}^{n+1}[1+a\lambda] + 
+    \phi_{m}^{n}[-1-a\Lambda] + 
+    \phi_{m+1}^{n}[-1+a\lambda] \\
+     & = f_{m}^{n+1}\left[\frac{k}{2}\right] +f_{m+1}^{n+1}\left[\frac{k}{2}\right] +f_{m}^{n}\left[\frac{k}{2}\right] f_{m+1}^{n}\left[\frac{k}{2}\right] = R_{kh}f
+    \end{aligned}
+\end{equation*}
+
+\noindent Now, for the Taylor expansion:
+
+\begin{equation*}
+\begin{aligned}
+	&\phi_m^{n+1} = \phi_m^n + k\phi_t + \mathcal{O}(k^2)\\
+	&\phi_{m+1}^{n+1} = \phi_m^n + k\phi_t + h\phi_x+ \mathcal{O}(k^2)+ \mathcal{O}(h^2)\\
+	&\phi_{m+1}^n = \phi_m^n + h\phi_x + \mathcal{O}(h^2)\\
+	&f_m^{n+1} = f_m^n + kf_t + \mathcal{O}(k^2)\\
+	&f_{m+1}^{n+1} = f_m^n + kf_t + +hf_x +\mathcal{O}(k^2)+ \mathcal{O}(h^2)\\
+	&f_{m+1}^{n} = f_m^n + hf_x + \mathcal{O}(h^2)\\
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+    \begin{aligned}
+    &(\phi_m^n + k\phi_t)[1-a\lambda] + 
+    (\phi_m^n + k\phi_t + h\phi_x)[1+a\lambda] + 
+    \phi_{m}^{n}[-1-a\Lambda] + 
+    (\phi_m^n + h\phi_x)[-1+a\lambda] \\
+     &= (f_m^n + kf_t)\left[\frac{k}{2}\right] +
+     (f_m^n + kf_t + +hf_x)\left[\frac{k}{2}\right] +
+     f_{m}^{n}\left[\frac{k}{2}\right] 
+     (f_m^n + hf_x)\left[\frac{k}{2}\right]+\mathcal{O}(k^2)+ \mathcal{O}(h^2)
+    \end{aligned}
+\end{equation*}
+
+\noindent which simplifies to
+
+
 
 \section*{3.4.1 (Numerical)}
 Solve the initial-boundary value problem $(1.2 .1)$ with the leapfrog scheme and the following boundary conditions. Use $a=1 .$ Only (d) should give good results. Why?
