@@ -138,7 +138,7 @@ $$ f_{mn} + \frac{1}{\sqrt{2\pi}}\int_{-\pi/h}^{\pi/h}e^{imh\xi}\hat{u}^{n}(\xi)
 
 \noindent Neglecting the $f_{mn}$ term and assuming the integrands are equal, we get:
 
-$$\hat{u}^{n+1}(\xi) = \frac{1 + {a\lambda} + e^{-ih\xi}\left(1 - a\lambda\right)}{1 - {a\lambda} + e^{ih\xi}\left(1+ {a\lambda}\right)}\hat{u}^n(\xi) = g(\h\xi)\hat{u}^n$$
+$$\hat{u}^{n+1}(\xi) = \frac{1 + {a\lambda} + e^{-ih\xi}\left(1 - a\lambda\right)}{1 - {a\lambda} + e^{ih\xi}\left(1+ {a\lambda}\right)}\hat{u}^n(\xi) = g(h\xi)\hat{u}^n$$
 
 \noindent For stability, we need $|g(h\xi)|\leq1$. Replacing $h\xi$ with $\theta$, we can form  the inequality:
 
@@ -328,8 +328,8 @@ $$
 u^{1} \\
 u^{2}
 \end{array}\right)_{t}+\left(\begin{array}{ll}
-1 & 1 \\
-1 & 1
+a & b \\
+b & a
 \end{array}\right)\left(\begin{array}{l}
 u^{1} \\
 u^{2}
@@ -341,8 +341,14 @@ And the leapfrog scheme is given by:
 $$
 \frac{u_{m}^{n+1}-u_{m}^{n-1}}{2 k}+a \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2 h}=0
 $$
+The boundary conditions references are:
+ \begin{itemize}
+    \item a) $u(t,0) : 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ u(t,1) : v_{M}^{n+1} = 2v_{M-1}^{n+1}-v_{M-2}^{n+1}$
+    \item b) $u(t,0) : 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ u(t,1) : 0$
+    \item c) $u(t,0) : v_{M}^{n+1}=2 v_{M-1}^{n+1}-v_{M-2}^{n+1} ~~~~~ u(t,1) : v_{M}^{n+1}=v_{M-1}^{n}$
+    \item d) $u(t,0) : 0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ u(t,1) : v_{M}^{n+1}=v_{M-1}^{n}$
+\end{itemize}
 
+The above is simply used for reference. Please refer to the code submitted on blackboard for the solution to this problem and the accompanying visuals.
 
 \end{document}
-
-\subsubsection*{Solution}
