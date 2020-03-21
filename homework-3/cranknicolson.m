@@ -1,5 +1,11 @@
 function solution = cranknicolson(k, h, exact)
 
+% Takes the time step k, space step h, and the exact solution to create
+% the initial and boundary conditions. The Crank-Nicolson method is 
+% then implemented, using Matlab's built-in iterative matrix solver.
+% The Thomas algorithm is also coded (but commented out), and it gives 
+% the same results.
+
 time = 0:k:.5;
 space = -1:h:1;
 
@@ -31,27 +37,29 @@ end
 
 for i = 1:length(time)-1
     
-    for j = 2:length(space)-1 
+    for j = 1:length(space)-2 
         A(j, j) = 1 + mu;
         
         if j > 1
             A(j,j-1)= -mu/2;
         end
         
-        if j < length(space)
+        if j < length(space)-2
             A(j,j+1)= -mu/2;
         end
         
-        B(j) = (1 - mu)*solution(i ,j) ... 
-             + (mu/2)*solution(i, j-1)...
-             + (mu/2)*solution(i, j+1);
+        B(j) = (1 - mu)*solution(i ,j+1) ... 
+             + (mu/2)*solution(i, j)...
+             + (mu/2)*solution(i, j+2);
     end
     
     x = A \ B;
-    solution(i+1, 2:end-1) = x(2:end-1)';
+    solution(i+1, 2:end-1) = x';
     
 end
 
+    solution(:,1) = [];
+    solution(:,end)=[];
 
 % Executing crank-nicolson using Thomas algorithm
 

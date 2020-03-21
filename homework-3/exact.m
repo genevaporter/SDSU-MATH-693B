@@ -1,7 +1,10 @@
 function solution = exact(k,h)
 
+% Returns the analytic solution to the heat equation with specific 
+% boundary and initial conditions.
+
 time = 0:k:.5;
-space = -1:h:1;
+space = -1+h:h:1-h;
 
 solution = zeros(length(time),length(space));
 
