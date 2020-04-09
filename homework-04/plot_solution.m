@@ -1,28 +1,13 @@
-function plot_solution(h, lambda, solution)
+function plot_solution(tvals, xvals, solution)
 %MAKE_MOVIE Summary of this function goes here
 %   Detailed explanation goes here
+   
+    [T,X] = meshgrid(xvals,tvals);
 
-    k = lambda*h;
-    time = 0:k:2;
-    space = -3:h:3;    
-    [T,X] = meshgrid(time, space);
+    surf(T,X,solution);
+   
+    ylabel('t');
+    xlabel('x');
 
-    figure(1)
-    clf
-    axes;  
-    
-    subplot(2,1,1)
-    surf(T,X,solution(:,:,1)');
-    shading interp
-    xlabel('t');
-    ylabel('x');
-    zlabel('u(t,x)');
-
-    subplot(2,1,2)
-    surf(T,X,solution(:,:,2)');
-    shading interp
-    xlabel('t');
-    ylabel('x');
-    zlabel('w(t,x)');
     
 end

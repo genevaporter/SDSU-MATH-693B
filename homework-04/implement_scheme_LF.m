@@ -1,4 +1,4 @@
-function solution = implement_scheme(h, lambda)
+function solution = implement_scheme_LF(h, lambda)
 %IMPLEMENT_SCHEME 
 %   This function implements a finite difference method and returns a
 %   matrix of output values for each time step. Each row of the output
