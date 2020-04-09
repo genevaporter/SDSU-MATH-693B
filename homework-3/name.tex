@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+
+%\topmargin=0.0in
+%\textheight=8.5in
+
+\begin{document}
+
+\noindent{\bf Math 269B} Instructor: Luminita Vese. Teaching Assistant: Michael Puthawala. 
+
+\noindent{\bf Homework \#7} Due on: Friday, March 10, or the following Monday. 
+
+\medbreak
+
+%{\bf [1]} Consider the system 
+%$$\left\{
+%\begin{array}{l} 
+%u_t+2u_x+v_x=0\\
+%v_t+u_x+2v_x=0
+%\end{array}
+%\right.
+%,$$
+%with initial data $u_0(x)=u(x,0)=\left\{
+%\begin{array}{l}
+%1 \mbox{ if } |x|\leq 1\\
+%0 \mbox{ if } |x|> 1
+%\end{array}
+%\right.
+%$, $v(x,0)=v_0(x)=0.$ 
+
+%(a) Write the system in matrix-vector form. 
+
+%(b) Find the exact solution of the system. 
+
+%Hint: transform the system into a set of two uncoupled one-way wave equations. 
+
+\noindent{\bf [1]} Consider the equation 
+$u_t+ a(x)u_x = 0$ for $x \in [0, 1]$, $t \in [0, T]$ with $u$ and $a$ periodic in $x$ with period 1. Assume
+$a(x) \geq 0$ and is continuous for $x \in [0, 1]$. Find the value for $\lambda$ for which the scheme (forward-time, backward-space) 
+$$\frac{v^{n+1}_m-v^n_m}{k}=-a_m\frac{v_m^n-v_{m-1}^n}{h}$$
+is stable in the infinity norm $\|\cdot\|_{\infty}$, under the condition
+$\frac{k}{h}=\lambda$. 
+Here $a_m = a(x_m)$.
+
+\medbreak
+
+\noindent{\bf [2]} Consider the equation 
+$u_t+ a(x)u_x = 0$ for $x \in [0, 1]$, $t \in [0, T]$ with $u$ and $a$ periodic in $x$ with period 1. Assume
+$a(x)$ is continuous for $x \in [0, 1]$. Find the value for $\lambda$ for which the upwind scheme 
+$$\frac{v^{n+1}_m-v^n_m}{k}=
+\left\{ 
+\begin{array}{l}
+-a_m\frac{v_m^n-v_{m-1}^n}{h} \mbox{ if } a_m\geq0\\
+-a_m\frac{v_{m+1}^n-v_{m}^n}{h} \mbox{ if } a_m<0
+\end{array}
+\right.
+$$
+is stable in the infinity norm $\|\cdot\|_{\infty}$, under the condition
+$\frac{k}{h}=\lambda$. 
+Here $a_m = a(x_m)$.
+
+\medbreak
+
+\noindent{\bf [3]} Give a derivation, based on the Lax-Wendroff idea, of a finite difference method to create approximate solutions of the
+differential equation 
+$$u_t+a(x)u_x=0.$$ 
+What is the leading term of the local truncation error for the scheme you derived ?
+
+\medbreak
+
+\noindent{\bf [4]} Consider the modified Lax-Friedrichs scheme for the one-way wave equation $u_t+au_x=f(x,t)$,
+$$u^{n+1}_j=\frac{1}{2}(u^n_{j+1}+u^n_{j-1})-\frac{a\lambda}{1+(a\lambda)^2}(u^n_{j+1}-u^n_{j-1})+\triangle tf^n_j.$$
+
+(a) Analize the consistency of the scheme. 
+
+(b) Show that this explict scheme is stable for all values of $\lambda$. Discuss the relation of this explicit and unconditionally stable scheme with the Courant-Friedrichs-Lewy Theorem. 
+
+CFL Thm: There are no explicit, unconditionally stable, consistent finite difference schemes for hyperbolic systems of partial differential equations. 
+
+\medbreak 
+
+\noindent{\bf [5]} Computational Exercise 6.3.10 from Strikwerda (page 156). You need a routine to solve the implicit equations (see Thomas Algorithm, Section 3.5). 
+
+%(a) Create a program that uses Crank-Nicolson to solve
+%$$u_t =\frac{1}{10}u_{xx},\ \ 
+%u(0, x) = \sin(\pi x) - \sin(3\pi x), \ \ 
+%u(t, 0) = u(t, 1) = 0,$$
+%for $t$ in $[0, 0.5]$ and $u_{xx}$ is approximated by $\delta_+\delta_-$. You need a routine to solve the implicit equations (see Thomas Algorithm, Section 3.5). 
+
+%(b) Compute soltions with the number of panels $M = 20$, 40, and 80 using a timestep $\triangle t = \triangle x$. Compute, record, and then
+%turn in the maximal error in the solution at t = 0.5 for each of these calculations. What order of accuracy is indicated by your
+%results?
+
+\end{document}
+
