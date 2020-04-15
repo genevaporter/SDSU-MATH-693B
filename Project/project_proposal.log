@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.24)  9 APR 2020 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.24)  9 APR 2020 11:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**hw02.tex
-(./hw02.tex
+**project_proposal.tex
+(./project_proposal.tex
 LaTeX2e <2019-10-01> patch level 3
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/10/25 v1.4k Standard LaTeX document class
@@ -104,8 +104,8 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-(./hw02.aux)
-\openout1 = `hw02.aux'.
+(./project_proposal.aux)
+\openout1 = `project_proposal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
@@ -145,80 +145,26 @@ e
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3]
-Overfull \hbox (11.51958pt too wide) detected at line 105
-[] [][] \OML/cmm/m/it/12 e[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n
-/12 ) []  []\OML/cmm/m/it/12 d^^X \OT1/cmr/m/n/12 = [] [][] \OML/cmm/m/it/12 e[
-][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 ) []\OML/cmm/m/it/12 d^
-^X
- []
-
-
-Overfull \hbox (38.17387pt too wide) detected at line 113
-[] \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 1 [] [] [] [][]\OMS/cmsy/m/n/12 !  [] [
-] []\OT1/cmr/m/n/12 1 \OMS/cmsy/m/n/12 ^^T j\OT1/cmr/m/n/12 1 + \OML/cmm/m/it/1
-2 ia^^U [] \OMS/cmsy/m/n/12 j[] [] [] [] [][]!  [] [] []\OT1/cmr/m/n/12 0 \OMS/
-cmsy/m/n/12 ^^T \OML/cmm/m/it/12 a[]^^U[] [][]  [] [] [] [][]\OMS/cmsy/m/n/12 !
- j\OML/cmm/m/it/12 a^^U [] ^^R\OMS/cmsy/m/n/12 j ^^U \OT1/cmr/m/n/12 0
- []
-
-
-Overfull \hbox (12.09177pt too wide) detected at line 120
-[] [] \OT1/cmr/m/n/12 + [] [] = \OML/cmm/m/it/12 f[]
- []
-
-[4]
-Overfull \hbox (40.15474pt too wide) detected at line 149
-\OT1/cmr/m/n/12 [(1 + \OML/cmm/m/it/12 a^^U\OT1/cmr/m/n/12 ) + (1 \OMS/cmsy/m/n
-/12 ^^@ \OML/cmm/m/it/12 a^^U\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 ^^R\OT1/cmr/
-m/n/12 ][] + [\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 (1 \OMS/cmsy/m/n/12 ^^@ \OML/
-cmm/m/it/12 a^^U\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 ^^R\OT1/cmr/m/n/12 ][] \O
-MS/cmsy/m/n/12 ^^T \OT1/cmr/m/n/12 [(1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 a^
-^U\OT1/cmr/m/n/12 ) + (1 + \OML/cmm/m/it/12 a^^U\OT1/cmr/m/n/12 ) [] \OML/cmm/m
-/it/12 ^^R\OT1/cmr/m/n/12 ][] + [(1 + \OML/cmm/m/it/12 a^^U\OT1/cmr/m/n/12 ) []
- \OML/cmm/m/it/12 ^^R\OT1/cmr/m/n/12 ][]
- []
-
-[5] [6]
-Overfull \hbox (21.83751pt too wide) detected at line 209
-[][]
- []
-
-
-Overfull \hbox (39.13606pt too wide) detected at line 231
-\OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = [] []
- []
-
-[7] [8]
-Overfull \hbox (49.33453pt too wide) detected at line 295
-[][]
- []
-
-[9] [10] (./hw02.aux) ) 
+(./project_proposal.aux) ) 
 Here is how much of TeX's memory you used:
- 1643 strings out of 492162
- 20329 string characters out of 6125277
- 93469 words of memory out of 5000000
- 6034 multiletter control sequences out of 15000+600000
- 9973 words of font info for 36 fonts, out of 8000000 for 9000
+ 1641 strings out of 492162
+ 20414 string characters out of 6125277
+ 88589 words of memory out of 5000000
+ 6032 multiletter control sequences out of 15000+600000
+ 9367 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,11n,23p,401b,199s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
-pfb>
-Output written on hw02.pdf (10 pages, 139013 bytes).
+ 30i,6n,23p,481b,199s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti12.pfb>
+Output written on project_proposal.pdf (1 page, 67724 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 32 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
