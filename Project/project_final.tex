@@ -32,6 +32,10 @@ Notes to add to thesis: add details from short explanation on FEM from "Stabilit
 
 \subsection{Mesh Refinement and Convergence}
 
+For mesh refined 4 times: 1,536 active cells, 6,146 degrees of freedom, 0.139239 max diameter.
+
+For mesh refined 5 times: 6,144 active cells, 24,578 degrees of freedom, 0.0697337 max diameter.
+
 To examine how the choice of a mesh domain influences the convergence of the system, we examined 4 separate spherical surfaces of varying density. The sphere with the lowest density contained 96 quadrilateral cells on a spherical surface of unit-less radius 1. The next contained 384 cells, then 1,536, and finally 6,144. Note that each mesh was refined by a factor of 4, as each quadrilateral cell was sub-divided into 4 smaller cells with approximately half of their starting width. In this context, "width" is defined as the longest distance between two vertices n a single cell, and for these meshes, width always refers to the longest diagonal of the quadrilateral. 
 
 After computing both the numeric solution using the FEM and the approximate analytic solution, we have a basis for testing our analysis. First, we can examine the convergence behavior for the four spheres from the numeric and analytic solutions. Figure \ref{fig:inner_norms} shows the convergence measure norms for $u$, given by:
