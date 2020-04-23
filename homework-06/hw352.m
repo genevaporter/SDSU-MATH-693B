@@ -20,12 +20,12 @@
 %
 % Comment on the accuracy of the method
 
-% b1 = 
-
+problem = 352;
 lambda = .5;
 h_vals = [1/10 1/20 1/40];
 
 for i = 1:length(h_vals)
+    
     h = h_vals(i);
     k = h*lambda;
     x = -1:h:1;
@@ -33,7 +33,7 @@ for i = 1:length(h_vals)
     
     solution = crank_nicolson_thomas(k, h, t, x);
     
-    plot_solution(solution, h, t, x, i);
+    plot_solution(solution, h, t, x, i, problem);
     
 end
 

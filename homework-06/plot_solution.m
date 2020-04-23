@@ -1,23 +1,29 @@
-function plot_solution(solution, h, t, x, i)
+function plot_solution(solution, h, t, x, i, problem)
 
 figure(i)
 clf
 hold on
 
-titleval = ["Initial value (a), end boundary (a), h = " + h;
-            "Initial value (a), end boundary (b), h = " + h;
-            "Initial value (b), end boundary (a), h = " + h;
-            "Initial value (b), end boundary (b), h = " + h];
+if problem == 352
+    titleval = ["Initial value (a), end boundary (a), h = " + h;
+                "Initial value (a), end boundary (b), h = " + h;
+                "Initial value (b), end boundary (a), h = " + h;
+                "Initial value (b), end boundary (b), h = " + h];
+elseif problem == 831
+    titleval = ["Boundary (a) for x = 0, h = " + h;
+                "Boundary (b) for x = 0, h = " + h;
+                "Boundary (c) for x = 0, h = " + h];
+end
 
 [X,T] = meshgrid(x,t);
 
-for i = 1:4
+for j = 1:length(titleval)
     
-    subplot(4,1,i)
-        surf(X,T, solution(:,:,i));
+    subplot(length(titleval),1,j)
+        surf(X,T, solution(:,:,j));
         xlabel('x');
         ylabel('t');
-        title(titleval(i));
+        title(titleval(j));
 
 end
 
