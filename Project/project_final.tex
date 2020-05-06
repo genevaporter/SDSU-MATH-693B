@@ -286,36 +286,43 @@ We now have a linear system of the form \textbf{A}$x=$ \textbf{b}. The $deal.ii$
 
 \section{The Spherical Domain}
 
-Before examining the measures of error for consistency, convergence, and stability, it is useful to establish some details about the domain in question. We will examine an arbitrary pattern on the surface of the sphere for various mesh densities and time step intervals. Each mesh was created using $deal.ii$'s mesh library. 
+Before examining the measures of error for consistency, convergence, and stability, it is useful to establish some details about the domain in question. We will examine an arbitrary pattern on the surface of the sphere for various mesh densities and time step intervals. Each mesh was created using $deal.ii$'s mesh library. In addition, we will be using solution values for $u$ rather than $v$ for the following analyses. The IMEX scheme used grants significantly more accuracy to $v$, so for fairness we will measure the system based on the maximum error.
 
-The mesh itself has a base shape of a cube, and can be refined an arbitrary number of times within a spherical manifold. Upon each refinement, the number of cells in the mesh quadruple, and the maximum diameter among all the cells, $h$, reduces by about half. We will use $h_3$ to denote the maximum diameter after 3 refinements from a cube, $h_4$ for four refinements, and $h_5$ for 5 refinements. Figure \ref{fig:mesh_density} below shows the three mesh densities we will be working with for the error analysis, while Table \ref{tab:refine} details the numerical information on each mesh, including number of cells and degrees of freedom.
+The mesh itself has a base shape of a cube, and can be refined an arbitrary number of times within a spherical manifold. Upon each refinement, the number of cells in the mesh quadruple, and the maximum diameter among all the cells, $h$, reduces by about half. We will use $h_2$ to denote the maximum diameter after two refinements from a cube, $h_3$ for three refinements, et. cetera. Figure \ref{fig:mesh_density} below shows the four mesh densities we will be working with for the error analysis, while Table \ref{tab:refine} details the numerical information on each mesh, including number of cells and degrees of freedom. Not pictures is the $h_6$ sphere, which will only be used as a domain for an exact solution facsimile.
 
-\begin{figure}[H]
-	\includegraphics[width=.3\linewidth]{xxx.png}
-	\includegraphics[width=.3\linewidth]{xxx.png}
-	\includegraphics[width=.3\linewidth]{xxx.png}
-	\caption{Sphere meshes with density refinements (left to right) for $h_3$, $h_4$, and $h_5$ }\label{fig:mesh_density}
+\begin{figure}[H]\label{fig:mesh density}
+	\includegraphics[width=.5\linewidth, trim= 10cm 5cm 10cm 5cm, clip]{images/ref2.png}
+	\includegraphics[width=.5\linewidth, trim= 10cm 5cm 10cm 5cm, clip]{images/ref3.png}
+	\includegraphics[width=.5\linewidth, trim= 10cm 5cm 10cm 5cm, clip]{images/ref4.png}
+	\includegraphics[width=.5\linewidth, trim= 10cm 5cm 10cm 5cm, clip]{images/ref5.png}
+	\caption{Sphere meshes with density refinements $h_2$ (top left), $h_3$ (top right), $h_4$ (bottom left), and $h_5$ (bottom right) }\label{fig:mesh_density}
 \end{figure}
 
 
 \begin{table}[H]
 	\centering
 	\caption{Spherical Mesh Density Values}\label{tab:refine}
-	\begin{tabular}{|l|c|c|c|}
+	\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
-		\textbf{}                   & $h_3$ & $h_4$    & $h_5$     \\ \hline
-		\textbf{Number of Cells}    & 384   & 1,536    & 6,144     \\ \hline
-		\textbf{Degrees of Freedom} &       & 6,146    & 24,578    \\ \hline
-		\textbf{Maximum Diameter}   &       & 0.139239 & 0.0697337 \\ \hline
+		\textbf{}                   & $h_2$    & $h_3$    & $h_4$    & $h_5$     & $h_6$   \\ \hline
+		\textbf{Number of Cells}    & 96       & 384      & 1,536    & 6,144     & 24,576\\ \hline
+		\textbf{Degrees of Freedom} & 386      & 1538     & 6,146    & 24,578    & 98,306\\ \hline
+		\textbf{Maximum Diameter}   & 0.541196 & 0.277048 & 0.139239 & 0.0697337 & 0.034877\\ \hline
 	\end{tabular}
 \end{table}
 
-Some visualizations to follow only show data up to $t=1$. It is important to establish that data collected at $t=1$ is sufficient to show steady-state dynamics. To do this, we will observe a standard difference norm, as follows:
+Some visualizations to follow only show data up to $t=1$. It is important to establish that data collected at $t=1$ is sufficient to show steady-state dynamics. To do this, we will observe a standard L$_2$ norm, as follows:
 
 \begin{equation}\label{eq:norm_standard}
-	||c|| = \sqrt{\sum_i c_i^2}
+	||u_n - u_{n+1}|| = \left(\sum_i^{\dim{u}} (u_n - u_{n+1})\right)^2
 \end{equation}
 
+Figure \ref{fig:steady-state-h} shows the differences in L$_2$ norms for varying mesh densities, each taken using a timestep length of $10^{-3}$. The norm takes $c=u_l-u_{l+1}$ as the argument, where $l=1,2,3,...\dim{u}$. We can see that as the mesh density increases (or, as the diameter $h$ halves), the steady state value decreases by about half.
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{images/norm_numeric.png}
+	\caption{L$_2$ Norm for spheres of various mesh densities.}\label{fig:steady-state-h}
+\end{figure}
 
 \section{Well-Posedness}
 
@@ -339,7 +346,7 @@ To verify that the Schnakenberg system meets these requirements, recall the give
 	\end{aligned}
 \end{equation}
 
-This system is a parabolic reaction-diffusion system, which is guaranteed to be well-posed so long as there are at least 2 boundary conditions and the spatial derivative is of the second degree. We can see that there are indeed two boundary conditions and that the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma v$ are of the second degree. We know the system is parabolic because it follows the form:
+This system is a parabolic reaction-diffusion system, which is guaranteed to be well-posed so long as there are at least 2 boundary conditions and the spatial derivative is of the second degree \cite{}. We can see that there are indeed two boundary conditions and that the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma v$ are of the second degree. We know the system is parabolic because it follows the form:
 
 \begin{equation}
 	\begin{aligned}
@@ -359,13 +366,13 @@ For FDM, consistency occurs when mesh cells and time step size decrease, the tru
 	P\phi - P_{k,h}\phi \rightarrow 0 ~~~\text{as} ~~~ k,~h \rightarrow 0
 \end{equation}
 
-However, for nonlinear PDEs, we need a different definition. Applying the FEM to the idea  of consistency changes some strategies as well. One way to measure consistency is by examining the local truncation error. Recall the linear system we set up using the FEM-IMEX scheme:
+However, for nonlinear time dependent PDEs, we can measure consistency by examining the local truncation error \cite{Tadmor2012}. For the ssytem in question, we solve each time step via a linear equation. Recall the linear system we set up using the FEM-IMEX scheme:
 
 \begin{equation}
 	\textbf{A}x=\textbf{b}
 \end{equation}
 
-\noindent To find the truncation error, we apply a simple check after solving the system:
+\noindent Here $x=(u^{n+1}, v^{n+1})$, and \textbf{b} is a function of $(u^n, v^n)$. To find the truncation error, we apply a simple check after solving the system:
 
 \begin{equation}\label{norm}
 	\text{Truncation error} = ||\textbf{b}-\textbf{A}x|| 
@@ -379,21 +386,8 @@ We define order $p$ by the following inequality:
 	||\textbf{b}-\textbf{A}x|| \lessapprox h^{p_1}+k^{p_2}
 \end{equation}
 
-We can then say that the numerical scheme is consistent if it is accurate of order $p=(p_1,p_2)>0$. For this analysis, we constrained the conjugate gradient algorithm to iterate until the truncation error was less than $10^{-20}$. Therefore, we can achieve an arbitrarily high consistency order so long as we are willing to sacrifice the computing time needed to achieve it. Since we keep the truncation error at $10^{-20}$ for all computational runs, almost all permutations of $h$ and $k$ in the proceeding analysis is consistent with an order of accuracy of at least (2,2), \textit{with the exception} of the combination $h_2$ and $k=0.01$, which did not converge after 10,000 iterations. Table \ref{tab:consistency} shows how the number of conjugate gradient iterations needed at $t=1$ decrease as $h$ and $k$ decrease, indicating that the system is more readily consistent as the time and space intervals are refined. Note that the combination the combination $h_2$ and $k=0.01$ is left out of the error analysis in future sections.
+We can then say that the numerical scheme is consistent if it is accurate of order $p=(p_1,p_2)>0$. For this analysis, we constrained the conjugate gradient algorithm to iterate until the truncation error was less than $10^{-20}$. Therefore, we can achieve an arbitrarily high accuracy order so long as we are willing to sacrifice the computing time needed to achieve it. Since we keep the truncation error at $10^{-20}$ for all computational runs, all permutations of $h$ and $k$ in the proceeding analysis are consistent with an order of accuracy of at least (2,2). 
 
-
-\begin{table}[H]
-	\centering
-	\caption{Conjugate Gradient Iterations Needed for Consistency}\label{tab:consistency}
-	\begin{tabular}{|l|l|l|l|l|}
-		\hline
-		& $k=10^{-2}$ & $k=10^{-3}$ & $k=10^{-4}$ & $k=10^{-5}$ \\ \hline
-		$h_2$ & 1           & 1           & 1           & 1           \\ \hline
-		$h_3$ & 1           & 1           & 1           & 1           \\ \hline
-		$h_4$ & 1           & 1           & 1           & 1           \\ \hline
-		$h_5$ & 1           & 1           & 1           & 1           \\ \hline
-	\end{tabular}
-\end{table}
 
 \section{Convergence}
 
@@ -402,20 +396,15 @@ While consistency examines the discretization of a system, convergence implies t
 If we call this exact solution facsimile $W_E$ while our approximate solution is $W_h$, then we can say that the solution converges given that the following criteria is satisfied:
 
 \begin{equation}
-	\left|\left|\frac{}{} ||W_h|| - ||W_E|| ~\right|\right| \lessapprox h^{q_1} + k^{q_2} ~~~\text{with} ~~~ ||W|| = ||w_n-w_{n+1}||
+	\left|\left|\frac{}{} ||W_h|| - ||W_E|| ~\right|\right| \lessapprox h^{q_1} + k^{q_2} ~~~\text{with} ~~~ ||W|| = ||w_l-w_{l+1}||
 \end{equation}
 
-\noindent where $n=1,2,3,...\text{dim}(w)$. So long as $q=(q_1,q_2) > 0$, the solution converges at rate $q$. The norms are the same as the one defined in (\ref{eq:norm_standard}). We can also show this graphically with the following visualizations:
+\noindent where $l=1,2,3,...\text{dim}(w)$. So long as $q=(q_1,q_2) > 0$, the solution converges at rate $q$. The norms are the same as the one defined in (\ref{eq:norm_standard}). We can also show this graphically. Figure \ref{fig:convergence} below shows how the convergence rates change for varying $h$ and $k$. 
 
-\begin{enumerate}
-	\item Plotting the difference norm vs. time for various time step solutions at the same cell size
-	\item Plotting the difference norm vs. time for various cell sizes at the same time step
-	\item Plotting the difference norm at t=1 vs. timestep size for various cell sizes
-\end{enumerate}
-
-
-Figure \ref{fig:convergence} below shows how the convergence rates change for varying $h$ and $k$. 
-
+\begin{figure}[H]
+	\includegraphics[width=\linewidth, trim=2.5cm 0 .5cm 0,clip]{images/norms_1.png}
+	\caption{Convergence norms for varying $h$ and $k$}\label{fig:convergence}
+\end{figure}
 
 
 
