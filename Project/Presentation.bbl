@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{Arnold2015}
+D.~N. Arnold, ``{Stability, Consistency, and Convergence of Numerical
+  Discretizations},'' {\em Encyclopedia of Applied and Computational
+  Mathematics}, pp.~1358--1364, 2015.
+
+\bibitem{Dziuk2013}
+G.~Dziuk and C.~M. Elliott, ``{Finite element methods for surface PDEs},'' {\em
+  Acta Numerica}, vol.~22, pp.~289--396, may 2013.
+
+\bibitem{Volckaert2013}
+T.~Volckaert, A.~Campbell, E.~Dill, C.~Li, P.~Minoo, and S.~{De Langhe},
+  ``{Localized Fgf10 expression is not required for lung branching
+  morphogenesis but prevents differentiation of epithelial progenitors},'' {\em
+  Development (Cambridge)}, vol.~140, no.~18, pp.~3731--3742, 2013.
+
+\bibitem{Barreira2011}
+R.~Barreira, C.~M. Elliott, and A.~Madzvamuse, ``{The surface finite element
+  method for pattern formation on evolving biological surfaces},'' {\em Journal
+  of Mathematical Biology}, vol.~63, pp.~1095--1119, dec 2011.
+
+\end{thebibliography}

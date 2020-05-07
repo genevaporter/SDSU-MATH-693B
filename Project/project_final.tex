@@ -40,13 +40,13 @@ Dr. Uduak George, Applied Mathematics}
 \begin{document}
 \maketitle
 
-The finite element method (FEM) is a technique used to solve many different types of partial differential equations on a variety of meshes. Almost always implemented numerically, the FEM has several practical applications in applied mathematics. This report will detail one particular application, solving a parabolic reaction-diffusion equation on a surface geometry, and discuss ways in which the theoretical application is valid. Then, we will compare the analytic solution on the surface of a sphere with a solution using the FEM. The proceeding error analysis will examine to solution L2 and H1 norms, as well as the difference when mesh density changes.
+The finite element method (FEM) is a technique used to solve many different types of partial differential equations (PDE) on a variety of meshes. Almost always implemented numerically, the FEM has several practical applications in applied mathematics. This report will detail one particular application, solving a time-dependent parabolic reaction-diffusion equation on a surface geometry, and discuss ways in which the theoretical application is valid. Then, we will compare the analytic solution on the surface of a sphere with a solution using the FEM. The proceeding error analysis will examine the well-posedness, consistency, convergence, and stability of the Schnakenberg Equation model on the surface of a sphere. 
 
 \section{The Surface Finite Element Method}\label{sec:SFEM}
 
 Solving the Schnakenberg equations using the finite element method uses the Laplace-Beltrami operator for a 2D domain in a 3D space. The discretized space is represented numerically by a linear system of matrices, and for parabolic problems, the square matrices are conveniently formatted as symmetric and positive definite. There are several analyses on this process already \cite{Dziuk1988} \cite{Dziuk2013}, so only a brief overview will be given here. 
 
-To begin, recall (\ref{eq:simplified-l-b}), the system of differential equations on the 2D domain $\Gamma$:
+To begin, the following is the system of differential equations on the 2D surface domain $\Gamma$ embedded in a 3D space:
 \begin{equation}
 \frac{\partial u}{\partial t} - \Delta_\Gamma u = \gamma~f(u,v) ~~~~~
 \frac{\partial v}{\partial t} - \delta\Delta_\Gamma v = \gamma~g(u,v) ~~~~~~ \text{with} ~~~~~~ u = v = 0 ~~ \text{on} ~~ \partial\Gamma
@@ -86,7 +86,7 @@ Note that we can use integration by parts here, and substitute a more easily com
 \int_\Gamma \varphi\frac{\partial v}{\partial t} + \delta\int_\Gamma \nabla_\Gamma\varphi\cdot\nabla_\Gamma v = \gamma\int_\Gamma \varphi g(u,v)
 \end{equation}
 
-Now recall the discussion of the Laplace-Beltrami operator in Section \ref{sec:laplace-beltrami}. When considering that our domain is not continuous but a mesh of countable elements, we can represent $\Gamma$ as the discretized space $\mathbb{T}$ with elements $K$. In this case, $\mathbb{T}$ is a representation of $\Gamma$ that is partitioned into non-overlapping quadrilaterals. Using this notation, we approximate the system as:
+When considering that our domain is not continuous but a mesh of countable elements, we can represent $\Gamma$ as the discretized space $\mathbb{T}$ with elements $K$. In this case, $\mathbb{T}$ is a representation of $\Gamma$ that is partitioned into non-overlapping quadrilaterals. Using this notation, we approximate the system as:
 \begin{equation}
 \begin{aligned}
 \sum_{K\in\mathbb{T}} 
@@ -106,7 +106,8 @@ Now recall the discussion of the Laplace-Beltrami operator in Section \ref{sec:l
 
 Because our domain is a surface, we must use the tangential gradients when computing the spatial integral (as opposed to the standard gradients for a bulk volume). Recall that the matrices here are symmetric and positive definite. In this context, the tangential gradient is defined for each variable as:
 $$\nabla_K u = D\textbf{x}_K G^{-1}_K\nabla u	~~~~~~~~
-\nabla_K v = D\textbf{x}_K G^{-1}_K\nabla v ~~~~~~~~ 
+\nabla_K v = D\textbf{x}_K G^{-1}_K\nabla v$$
+$$
 \nabla_K \varphi = D\textbf{x}_K G^{-1}_K\nabla \varphi = \nabla \varphi^T G^{-1}_K D\textbf{x}_K^T$$
 
 Furthermore, we can express the spatial elements in terms of a  reference element $\hat{K} = [0,1]^2$, which is beneficial for efficiency in numerical implementation. The reference element is derived from the discretization of the domain mesh. Since our surface mesh is made of quadrilaterals, the reference element will be a unit square. The discretized space can be expressed in terms of the reference element and simplified using the relation $G_k = D\textbf{x}_K^T D\textbf{x}_K$.
@@ -121,7 +122,7 @@ Furthermore, we can express the spatial elements in terms of a  reference elemen
 
 % \sqrt{\text{det}(G_k)}
 
-It is prudent to note that this process is referred to as $triangulation$, named from the standard practice in computational mesh generation, which creates surfaces with triangular elements. For this model's validation, we use quadrilaterals within a spherical manifold refined 5 times, yielding a discretized surface with $6\times 4^5$ quadrilaterals.
+It is prudent to note that this process is referred to as $triangulation$, named from the standard practice in computational mesh generation, which creates surfaces with triangular elements. 
 
 
 
@@ -136,9 +137,9 @@ The triangulation process lends itself to numerical representation in vector for
 u \approx u_K = \sum_j\vartheta_j U_j ~~~~~~~~~~ v \approx v_K = \sum_j\vartheta_j V_j
 \end{equation}
 
-We now introduce the basis function $\vartheta_j$. The basis function is similar to the linear algebra standard: a piecewise polynomial whose purpose is to assign a value to a vertex with index $j$, interpolate values for the vertices that share an edge with vertex $j$, and return zero for all other vertices. We create a different basis function for each node on the mesh. In ``classical" FEM formulations, low-degree polynomials are used for each basis function. Predictably, higher degree polynomials result in both increased accuracy and increased computing time. For this thesis, a second degree polynomial will be used for each basis function. $U_j$ and $V_j$ are unknown coefficients, which are treated as variables.
+We now introduce the basis function $\vartheta_j$. The basis function is similar to the linear algebra standard: a piecewise polynomial whose purpose is to assign a value to a vertex with index $j$, interpolate values for the vertices that share an edge with vertex $j$, and return zero for all other vertices. We create a different basis function for each node on the mesh. In ``classical" FEM formulations, low-degree polynomials are used for each basis function \cite{Flaherty2005}. Predictably, higher degree polynomials result in both increased accuracy and increased computing time. For this thesis, a second degree polynomial will be used for each basis function. $U_j$ and $V_j$ are unknown coefficients, which are treated as variables.
 
-The \textit{deal.ii} library produces a triangulated model with a few simple commands. The use of tangential gradients for surface calculations is more tedious, requiring several nested loops through each vertex on the mesh. References and comments in the code implementing these triangulation procedures can be found in Section \ref{sec:dealii}, and the complete code is in  Appendix \ref{chap:code}. 
+The \textit{deal.ii} library produces a triangulated model with a few simple commands. The use of tangential gradients for surface calculations is more tedious, requiring several nested loops through each vertex on the mesh. 
 
 Our spatially discretized system follows (with the tangential gradient notation omitted for clarity):
 \begin{equation}
@@ -159,7 +160,7 @@ Our spatially discretized system follows (with the tangential gradient notation 
 \end{equation}
 
 
-With these approximations, the test functions $\varphi_i$ can have a solution for the system at each vertex. For this thesis, it will be sufficient to state that a unique solution to the above system exists. A detailed explanation can be found in \cite{Dziuk2013}, which states that the proof is a direct application of the Lax-Milgram Theorem. For ease of communication, we will simplify the notation here as follows:
+With these approximations, the test functions $\varphi_i$ can have a solution for the system at each vertex. For this report, it will be sufficient to state that a unique solution to the above system exists (more on this in future sections). A detailed explanation can be found in \cite{Dziuk2013}, which states that the proof is a direct application of the Lax-Milgram Theorem. For ease of communication, we will simplify the notation here as follows:
 $$ \sum_{K\in\mathbb{T}}\sum_j\int_K x\cdot y = \left(\frac{}{}x,y~\right) $$
 
 \noindent Now our system is more easily examined when written as
@@ -172,7 +173,7 @@ $$ \sum_{K\in\mathbb{T}}\sum_j\int_K x\cdot y = \left(\frac{}{}x,y~\right) $$
 
 %Now we must explain the domain on which we will solve. In this case, it is the solid unit sphere. Each discretized cell of the sphere will be a hexahedron. Note that the process forming a discretized mesh in a 3 dimensional space is often called \textit{triangulation}, which can seem misleading, as we are using quadrilateral-faced structures to form the shape mesh (See Appendix \ref{chap:numerical-tools} for the \textit{deal.ii} code that uses the command {\ttfamily triangulation()} for this procedure). The triangulation of the spherical domain is handled using \textit{deal.ii}'s library of basic geometries, which can be refined to more detail an arbitrary number of times (See Appendix \ref{chap:numerical-tools} for more details on \textbf{deal.ii}'s library of geometries). For this theory validation, we will use a spherical mesh refined 5 times, producing a mesh containing $4^5$ hexahedra cells.
 
-Here, it is useful to explain the expansion of the functions $f_K$ and $g_K$, the discretized versions of the reaction equations seen in (\ref{eq:simplified}). Because the solutions are in vector format, we must treat the nonlinear term piecewise; that is, multiply each vector term according to its position in the vector. 
+Here, it is useful to explain the expansion of the functions $f_K$ and $g_K$, the discretized versions of the reaction equations. Because the solutions are in vector format, we must treat the nonlinear term piecewise; that is, multiply each vector term according to its position in the vector. 
 
 Since the basis functions need only satisfy the linear system, we want it to be as simple as possible. To accomplish this, it is not necessary to create nonlinear terms for the basis function itself. We need only use it in the first degree when attached to the nonlinear term. For example, using $\vartheta_j^3$ as the basis function term for $U_j^2V_j$ is not strictly necessary; using $\vartheta_j$ alone will suffice. In addition, $\alpha$ and $\beta$  are transformed into \textbf{a} and \textbf{b}, which are simply mono-valued vectors corresponding to the size of the basis function vectors. We can now expand the $f_K$ and $g_K$ terms as follows:
 
@@ -226,7 +227,7 @@ u^2v &\rightarrow \textbf{M}\cdot U^2_jV_j\\
 
 \section{Implicit-Explicit Time Stepping Scheme}\label{sec:imex}
 
-The following time discretization will use both implicit and explicit strategies. There is significant evidence that using a combination of implicit and explicit methods improves the stability and decreases the error in temporal discretization schemes [xxx references]. Once we assemble the  linear system, we will substitute the spatial discretization terms discussed in Section \ref{sec:SFEM}. To begin, we recall our nondimensionalized system of equations:
+The following time discretization will use both implicit and explicit strategies. There is significant evidence that using a combination of implicit and explicit methods improves the stability and decreases the error in temporal discretization schemes \cite{Madzamuse}. Once we assemble the  linear system, we will substitute the spatial discretization terms discussed in Section \ref{sec:SFEM}. To begin, we recall our system of equations:
 \begin{equation}
 \frac{\partial u}{\partial t} - \Delta u = \gamma~(\alpha - u + u^2v) ~,~~~~~~~~~
 \frac{\partial v}{\partial t} - \delta\Delta v = \gamma~(\beta - u^2v)
@@ -234,51 +235,51 @@ The following time discretization will use both implicit and explicit strategies
 
 \noindent First, let's examine the first equation in terms of $u$. We apply a first order implicit Euler method to the time derivative, with the exception of the nonlinear term. This is one of many forms known as the Implicit-Explicit, or IMEX, discretization scheme. Note that $k$ is the time step length and $N$ is the time step index number.
 \begin{equation}
-\frac{u_N - u_{N-1}}{k} - \Delta u_N = \gamma~(\alpha - u_N + u_{N-1}^2v_{N-1}) 
+\frac{u_{N+1} - u_{N}}{k} - \Delta u_{N+1} = \gamma~(\alpha - u_{N+1} + u_{N}^2v_{N}) 
 \end{equation}
 
 \noindent Separating the unknown values with $u_n$ we get
 \begin{equation}
-u_N+k\left(\gamma u_N - \Delta u_N\right) = k\gamma\left(\alpha + u_{N-1}^2v_{N-1} \right) + u_{N-1}
+u_{N+1}+k\left(\gamma u_{N+1} - \Delta u_{N+1}\right) = k\gamma\left(\alpha + u_{N}^2v_{N} \right) + u_{N}
 \end{equation}
 
 
 From here, we can solve the equation for $v$ using a slightly more implicit scheme. This is possible because when solving this system numerically, we can solve one equation before the other for each time step. Therefore, the value $u_N$ will be known when solving the equation for $v$. This yields:
 \begin{equation}
-\frac{v_N - v_{N-1}}{k} - \delta\Delta v_N = \gamma(\beta - u_N^2v_{N-1})
+\frac{v_{N+1} - v_{N}}{k} - \delta\Delta v_{N+1} = \gamma(\beta - u_{N+1}^2v_{N})
 \end{equation}
 
 \noindent Again, separating unknown terms yields
 \begin{equation}
-v_N-k\left(\delta\Delta v_N\right) = k\gamma\left(\beta - u_{N}^2v_{N-1} \right) + v_{N-1}
+v_{N+1}-k\left(\delta\Delta v_{N+1}\right) = k\gamma\left(\beta - u_{N+1}^2v_{N} \right) + v_{N}
 \end{equation}
 
 \noindent In operator form, the system simplifies to
 \begin{equation}\label{eq:time-d}
 \begin{aligned}
-\left[1 + k\left(\gamma - \Delta\cdot\right)\right]u_n=  k\gamma\left(\alpha + u_{N-1}^2v_{N-1} \right) + u_{N-1} \\
-\left[1 - k\delta\Delta\cdot\right] v_n=  k\gamma\left(\beta - u_{N-1}^2v_{N-1} \right) + v_{N-1} \\
+\left[1 + k\left(\gamma - \Delta\cdot\right)\right]u_{N+1}=  k\gamma\left(\alpha + u_{N}^2v_{N} \right) + u_{N} \\
+\left[1 - k\delta\Delta\cdot\right] v_{N+1}=  k\gamma\left(\beta - u_{N}^2v_{N} \right) + v_{N} \\
 \end{aligned}
 \end{equation}
 
 Using this combination of implicit and explicit approaches allows a moderately high level of accuracy without a significantly complex scheme. We can apply this temporally discretized system to the spatially discretized result of the finite element method linear system by substituting the results to form a linear system. Combining Equation (\ref{eq:time-d}) and the substitutions in (\ref{eq:space-d}), we get:
 \begin{equation}
 \begin{aligned}
-\left[(1+k\gamma)\textbf{M} + k\textbf{L}\right] U_N&=  k\gamma\left(\textbf{A} + \textbf{M} U^2_{N-1}V_{N-1} \right) + \textbf{M}U_{N-1} \\
-\left[\textbf{M} + k\delta\textbf{L}\right] V_N&=  k\gamma\left(\textbf{B} - \textbf{M} U^2_NV_{N-1} \right) + \textbf{M}V_{N-1} \\
+\left[(1+k\gamma)\textbf{M} + k\textbf{L}\right] U_{N+1}&=  k\gamma\left(\textbf{A} + \textbf{M} U^2_{N}V_{N} \right) + \textbf{M}U_{N} \\
+\left[\textbf{M} + k\delta\textbf{L}\right] V_{N+1}&=  k\gamma\left(\textbf{B} - \textbf{M} U^2_{N+1}V_{N} \right) + \textbf{M}V_{N} \\
 \end{aligned}
 \end{equation}
 
-We now have a linear system of the form \textbf{A}$x=$ \textbf{b}. The $deal.ii$ library has a built-in linear solver, and we utilize the solver's conjugate gradient method for each timestep. For simplicity in further discussion, we will represent the system matrix (left-hand side) and the right hand side matrix as follows:
+We now have a linear system of the form $\mathcal{A}x=$ \textbf{b}. The $deal.ii$ library has a built-in linear solver, and we utilize the solver's conjugate gradient method for each timestep. For simplicity in further discussion, we will represent the system matrix (left-hand side) and the right hand side matrix as follows:
 
 \begin{equation}
-	\textbf{A} = \left(\begin{matrix} 
+	\mathcal{A} = \left(\begin{matrix} 
 	(1+k\gamma)\textbf{M} + k\textbf{L} \\ 
 	\textbf{M} + k\delta\textbf{L}
 	\end{matrix}\right) ~~~~~
 	\textbf{b} = \left(\begin{matrix} 
-	k\gamma\left(\textbf{A} + \textbf{M} U^2_{N-1}V_{N-1} \right) + \textbf{M}U_{N-1} \\ 
-	k\gamma\left(\textbf{B} - \textbf{M} U^2_NV_{N-1} \right) + \textbf{M}V_{N-1}
+	k\gamma\left(\textbf{A} + \textbf{M} U^2_{N}V_{N} \right) + \textbf{M}U_{N} \\ 
+	k\gamma\left(\textbf{B} - \textbf{M} U^2_{N+1}V_{N} \right) + \textbf{M}V_{N}
 	\end{matrix}\right)
 \end{equation} 
 
@@ -288,7 +289,7 @@ We now have a linear system of the form \textbf{A}$x=$ \textbf{b}. The $deal.ii$
 
 Before examining the measures of error for consistency, convergence, and stability, it is useful to establish some details about the domain in question. We will examine an arbitrary pattern on the surface of the sphere for various mesh densities and time step intervals. Each mesh was created using $deal.ii$'s mesh library. In addition, we will be using solution values for $u$ rather than $v$ for the following analyses. The IMEX scheme used grants significantly more accuracy to $v$, so for fairness we will measure the system based on the maximum error.
 
-The mesh itself has a base shape of a cube, and can be refined an arbitrary number of times within a spherical manifold. Upon each refinement, the number of cells in the mesh quadruple, and the maximum diameter among all the cells, $h$, reduces by about half. We will use $h_2$ to denote the maximum diameter after two refinements from a cube, $h_3$ for three refinements, et. cetera. Figure \ref{fig:mesh_density} below shows the four mesh densities we will be working with for the error analysis, while Table \ref{tab:refine} details the numerical information on each mesh, including number of cells and degrees of freedom. Not pictures is the $h_6$ sphere, which will only be used as a domain for an exact solution facsimile.
+The mesh itself has a base shape of a cube, and can be refined an arbitrary number of times within a spherical manifold. Upon each refinement, the number of cells in the mesh quadruple, and the maximum diameter among all the cells, $h$, reduces by about half. We will use $h_2$ to denote the maximum diameter after two refinements from a cube, $h_3$ for three refinements, et. cetera. Figure \ref{fig:mesh_density} below shows the four mesh densities we will be working with for the error analysis, while Table \ref{tab:refine} details the numerical information on each mesh, including number of cells and degrees of freedom. Not pictured is the $h_6$ sphere, which will only be used as a domain for an exact solution facsimile.
 
 \begin{figure}[H]\label{fig:mesh density}
 	\includegraphics[width=.5\linewidth, trim= 10cm 5cm 10cm 5cm, clip]{images/ref2.png}
@@ -311,18 +312,41 @@ The mesh itself has a base shape of a cube, and can be refined an arbitrary numb
 	\end{tabular}
 \end{table}
 
-Some visualizations to follow only show data up to $t=1$. It is important to establish that data collected at $t=1$ is sufficient to show steady-state dynamics. To do this, we will observe a standard L$_2$ norm, as follows:
+Some visualizations to follow only show data up to $t=0.5$. It is important to establish that data collected at $t=1$ is sufficient to show steady-state dynamics. To do this, we will observe a standard L$_2$ norm, as follows:
 
 \begin{equation}\label{eq:norm_standard}
-	||u_n - u_{n+1}|| = \left(\sum_i^{\dim{u}} (u_n - u_{n+1})\right)^2
+	||u_{N+1} - u_{N}|| = \left(\sum_i^{\dim{u}} (u_{N+1} - u_{N})\right)^2
 \end{equation}
 
-Figure \ref{fig:steady-state-h} shows the differences in L$_2$ norms for varying mesh densities, each taken using a timestep length of $10^{-3}$. The norm takes $c=u_l-u_{l+1}$ as the argument, where $l=1,2,3,...\dim{u}$. We can see that as the mesh density increases (or, as the diameter $h$ halves), the steady state value decreases by about half.
+Figure \ref{fig:steady-state-h} shows the differences in L$_2$ norms for varying mesh densities, each taken using a timestep length of $10^{-3}$. The norm takes the difference between time steps $u_{N+1}-u_{N}$ as the argument, where $i=1,2,3,...\dim{u}$. We can see that as the mesh density increases (or, as the diameter $h$ halves), the steady state value decreases by about half.
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{images/norm_numeric.png}
 	\caption{L$_2$ Norm for spheres of various mesh densities.}\label{fig:steady-state-h}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Well-Posedness}
 
@@ -334,7 +358,7 @@ We can define a well-posed problem as having three characteristics:
 	\item The solution changes continuously as the boundary values and initial conditions change.
 \end{enumerate}
 
-To verify that the Schnakenberg system meets these requirements, recall the given equations with their boundary conditions and initial values using the variables $t$, $\phi$, and $\theta$:
+To verify that the Schnakenberg system meets these requirements, observe the given equations with their boundary conditions and initial values using the variables $t$, $\phi$, and $\theta$ (note that $r=1$ is constant, since we are only examining the surface):
 
 \begin{equation}
 	\begin{aligned}
@@ -346,7 +370,7 @@ To verify that the Schnakenberg system meets these requirements, recall the give
 	\end{aligned}
 \end{equation}
 
-This system is a parabolic reaction-diffusion system, which is guaranteed to be well-posed so long as there are at least 2 boundary conditions and the spatial derivative is of the second degree \cite{}. We can see that there are indeed two boundary conditions and that the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma v$ are of the second degree. We know the system is parabolic because it follows the form:
+This system is a parabolic reaction-diffusion system, which is guaranteed to be well-posed so long as there are at least 2 boundary conditions and the spatial derivative is of the second degree \cite{Tas2007}. We can see that there are indeed two boundary conditions and that the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma v$ are, by definition, of the second degree. We know the system is parabolic because it follows the form:
 
 \begin{equation}
 	\begin{aligned}
@@ -356,6 +380,30 @@ This system is a parabolic reaction-diffusion system, which is guaranteed to be 
 \end{equation}
 
 Here, the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma u$ are represented by $u_{xx}$ and $v_{xx}$, respectively. The time derivatives $\dot{u}$ and $\dot{v}$ are likewise represented by $u_t$ and $v_t$. For both equations, the coefficients corresponding to $B$ and $C$ are equal to zero, so the criteria for parabolic classification $B^2-AC=0$ is met. Since the problem is well-posed, we can continue to make other important inferences later on.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Consistency}
@@ -369,13 +417,13 @@ For FDM, consistency occurs when mesh cells and time step size decrease, the tru
 However, for nonlinear time dependent PDEs, we can measure consistency by examining the local truncation error \cite{Tadmor2012}. For the ssytem in question, we solve each time step via a linear equation. Recall the linear system we set up using the FEM-IMEX scheme:
 
 \begin{equation}
-	\textbf{A}x=\textbf{b}
+	\mathcal{A}x=\textbf{b}
 \end{equation}
 
-\noindent Here $x=(u^{n+1}, v^{n+1})$, and \textbf{b} is a function of $(u^n, v^n)$. To find the truncation error, we apply a simple check after solving the system:
+\noindent Here $x=(u^{N+1}, v^{N+1})^T$, and \textbf{b} is a function of $(u^N, v^N)$. To find the truncation error, we apply a simple check after solving the system:
 
 \begin{equation}\label{norm}
-	\text{Truncation error} = ||\textbf{b}-\textbf{A}x|| 
+	\text{Truncation error} = ||\textbf{b}-\mathcal{A}x|| 
 \end{equation}
 
 The truncation error is already an integral part of the algorithm for solving the linear system (in this case, the conjugate gradient method). We can apply a constraint that forces the solver to continue enumerating until the solution gives a truncation error below the desired amount. This feature also allows us to easily control the accuracy to order $p$, so long as we constrain the truncation error as being less than both $\mathcal{O}(k^p)$ and $\mathcal{O}(h^p)$. 
@@ -383,10 +431,31 @@ The truncation error is already an integral part of the algorithm for solving th
 We define order $p$ by the following inequality:
 
 \begin{equation}
-	||\textbf{b}-\textbf{A}x|| \lessapprox h^{p_1}+k^{p_2}
+	||\textbf{b}-\mathcal{A}x|| \lessapprox h^{p_1}+k^{p_2}
 \end{equation}
 
 We can then say that the numerical scheme is consistent if it is accurate of order $p=(p_1,p_2)>0$. For this analysis, we constrained the conjugate gradient algorithm to iterate until the truncation error was less than $10^{-20}$. Therefore, we can achieve an arbitrarily high accuracy order so long as we are willing to sacrifice the computing time needed to achieve it. Since we keep the truncation error at $10^{-20}$ for all computational runs, all permutations of $h$ and $k$ in the proceeding analysis are consistent with an order of accuracy of at least (2,2). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Convergence}
@@ -396,15 +465,57 @@ While consistency examines the discretization of a system, convergence implies t
 If we call this exact solution facsimile $W_E$ while our approximate solution is $W_h$, then we can say that the solution converges given that the following criteria is satisfied:
 
 \begin{equation}
-	\left|\left|\frac{}{} ||W_h|| - ||W_E|| ~\right|\right| \lessapprox h^{q_1} + k^{q_2} ~~~\text{with} ~~~ ||W|| = ||w_l-w_{l+1}||
+\left|\left|\frac{}{} W_h - W_E ~\right|\right| \lessapprox h^{q_1} + k^{q_2} 
 \end{equation}
 
-\noindent where $l=1,2,3,...\text{dim}(w)$. So long as $q=(q_1,q_2) > 0$, the solution converges at rate $q$. The norms are the same as the one defined in (\ref{eq:norm_standard}). We can also show this graphically. Figure \ref{fig:convergence} below shows how the convergence rates change for varying $h$ and $k$. 
+However, because of computational limitations, it was not feasible to calculate the difference $W_h-W_E$ for each time step. Instead, we examined the convergence rate based on the following inequality:
+
+\begin{equation}
+\left|\frac{}{} ||W_h|| - ||W_E|| ~\right| \leq \left|\frac{}{} || W_h - W_E|| ~ \right|  \lessapprox \left|h^{q_1} + k^{q_2}\right| = h^{q_1} + k^{q_2}
+\end{equation}
+
+\noindent Using $\left|\frac{}{} ||W_h|| - ||W_E|| ~\right|$ is a valid measure so long as $q=(q_1,q_2) > 0$, then the solution converges at rate $q$. The norms are the same as the one defined in (\ref{eq:norm_standard}). We can also show this graphically. Figure \ref{fig:convergence} below shows how the convergence rates change for varying $h$ and $k$. 
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth, trim=2.5cm 0 .5cm 0,clip]{images/norms_1.png}
 	\caption{Convergence norms for varying $h$ and $k$}\label{fig:convergence}
 \end{figure}
+
+Convergence norm values are shown in Table \ref{tab:converg_norms} below, for various values of $h$ and $k$. Table \ref{tab:converg_rates} shows the maximum convergence rate for each pair of values $(h,k)$. We can confidently say that all models converge to some degree.
+
+\begin{table}[H]
+	\caption{Convergence Norm Values For Various $h$ and $k$}\label{tab:converg_norms}
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+					& $h_2$  & $h_3$  & $h_4$  & $h_5$  \\ \hline
+		$k=10^{-3}$ & 1.9e-3 & 1.3e-3 & 5.0e-3 & 1.0e-2 \\ \hline
+		$k=10^{-4}$ & 1.8e-4 & 1.2e-4 & 4.9e-4 & 1.0e-3 \\ \hline
+		$k=10^{-5}$ & 1.8e-5 & 1.2e-5 & 4.9e-5 & 1.0e-4 \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+	\caption{Convergence Norm Values For Various $h$ and $k$}\label{tab:converg_rates}
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		            & $h_2$    & $h_3$  & $h_4$    & $h_5$  \\ \hline
+		$k=10^{-3}$ & (10, 10) & (5, 5) & (2, 2)   & (1, 1) \\ \hline
+		$k=10^{-4}$ & (14, 14) & (7, 7) & (3, 3)   & (2, 2) \\ \hline
+		$k=10^{-5}$ & (17, 17) & (8, 8) & (5, 5)   & (3, 3) \\ \hline
+	\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -414,7 +525,7 @@ Stability in a finite difference system demands that the solution is persistent,
 
 \begin{theorem}[Lax-Richtmyer]
 	Let $W_h$ be the solution of a numerical method consistent with a well-posed time-dependent problem; in particular, assume that it is accurate of order $p>0$. Then, if the numerical method is stable, its solution converges with $p$th-order convergence rate,
-	$$\left|\left|\frac{}{}||W_h|| - ||W_E||~\right|\right| \lessapprox \sum_{m=0}^n k\cdot ||\textbf{b}-\textbf{A}x|| \lessapprox h^{p_1} + k^{p_2}, ~~~t^n\in[0,T].$$
+	$$\left|\left|\frac{}{} W_h - W_E~\right|\right| \lessapprox \sum_{m=0}^n k\cdot ||\textbf{b}-\textbf{A}x|| \lessapprox h^{p_1} + k^{p_2}, ~~~t^n\in[0,T].$$
 \end{theorem}
 
 \section{Conclusion}
@@ -466,3 +577,19 @@ We can now show that the consistency order increases as $k$ and $h$ decrease. Fi
 
 
 
+
+
+
+
+Another way to verify that the problem is well-posed is to apply the Lax-Milgram Theorem. 
+
+\begin{theorem}[Lax-Milgram]
+	Let $V$ be a Hilbert space and a(.,.) a bilinear form on V, which is 
+	\begin{enumerate}
+		\item bounded: $|a(u,v)| \leq C ||u||~||v||$ and
+		\item coercive: $a(u,u) \geq ||u||^2$.
+	\end{enumerate}
+	Then, for any $f \in V'$, there is a unique solution $u\in V$ to the equation $a(u,v)=f(v)  \forall v \in V$, and it holds $||u|| \leq \frac{1}{c} ||f||_{V'}$.
+\end{theorem}
+
+Recall the weak formation FEM step. The Lax-Milgram Theorem
