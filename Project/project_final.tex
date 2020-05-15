@@ -36,15 +36,15 @@
 Numerical Partial Differential Equations\\
 Dr. Uduak George, Applied Mathematics}
 
-\date{7 May, 2020} 
+\date{14 May, 2020} 
 \begin{document}
 \maketitle
 
-The finite element method (FEM) is a technique used to solve many different types of partial differential equations (PDE) on a variety of meshes. Almost always implemented numerically, the FEM has several practical applications in applied mathematics. This report will detail one particular application, solving a time-dependent parabolic reaction-diffusion equation on a surface geometry, and discuss ways in which the theoretical application is valid. Then, we will compare the analytic solution on the surface of a sphere with a solution using the FEM. The proceeding error analysis will examine the well-posedness, consistency, convergence, and stability of the Schnakenberg Equation model on the surface of a sphere. 
+The finite element method (FEM) is a technique used to solve many different types of partial differential equations (PDE) on a variety of meshes. Almost always implemented numerically, the FEM has several practical applications in applied mathematics. This report will detail one particular application, solving a time-dependent parabolic reaction-diffusion equation on a surface geometry, and discuss ways in which the theoretical application is valid. The proceeding error analysis will examine the well-posedness, consistency, convergence, and stability of our Schnakenberg Equation model on the surface of a sphere. 
 
 \section{The Surface Finite Element Method}\label{sec:SFEM}
 
-Solving the Schnakenberg equations using the finite element method uses the Laplace-Beltrami operator for a 2D domain in a 3D space. The discretized space is represented numerically by a linear system of matrices, and for parabolic problems, the square matrices are conveniently formatted as symmetric and positive definite. There are several analyses on this process already \cite{Dziuk1988} \cite{Dziuk2013}, so only a brief overview will be given here. 
+Solving the Schnakenberg equations using the finite element method uses the Laplace-Beltrami operator for a 2D domain in a 3D space. The discretized space is represented numerically by a linear system of matrices, and for parabolic problems, the square matrices are conveniently formatted as symmetric and positive definite. There are several analyses on this process already \cite{Dziuk2012}, so only a brief overview will be given here. 
 
 To begin, the following is the system of differential equations on the 2D surface domain $\Gamma$ embedded in a 3D space:
 \begin{equation}
@@ -137,7 +137,7 @@ The triangulation process lends itself to numerical representation in vector for
 u \approx u_K = \sum_j\vartheta_j U_j ~~~~~~~~~~ v \approx v_K = \sum_j\vartheta_j V_j
 \end{equation}
 
-We now introduce the basis function $\vartheta_j$. The basis function is similar to the linear algebra standard: a piecewise polynomial whose purpose is to assign a value to a vertex with index $j$, interpolate values for the vertices that share an edge with vertex $j$, and return zero for all other vertices. We create a different basis function for each node on the mesh. In ``classical" FEM formulations, low-degree polynomials are used for each basis function \cite{Flaherty2005}. Predictably, higher degree polynomials result in both increased accuracy and increased computing time. For this thesis, a second degree polynomial will be used for each basis function. $U_j$ and $V_j$ are unknown coefficients, which are treated as variables.
+We now introduce the basis function $\vartheta_j$. The basis function is similar to the linear algebra standard: a piecewise polynomial whose purpose is to assign a value to a vertex with index $j$, interpolate values for the vertices that share an edge with vertex $j$, and return zero for all other vertices. We create a different basis function for each node on the mesh. In ``classical" FEM formulations, low-degree polynomials are used for each basis function \cite{Tuncer2015}. Predictably, higher degree polynomials result in both increased accuracy and increased computing time. For this thesis, a second degree polynomial will be used for each basis function. $U_j$ and $V_j$ are unknown coefficients, which are treated as variables.
 
 The \textit{deal.ii} library produces a triangulated model with a few simple commands. The use of tangential gradients for surface calculations is more tedious, requiring several nested loops through each vertex on the mesh. 
 
@@ -227,7 +227,7 @@ u^2v &\rightarrow \textbf{M}\cdot U^2_jV_j\\
 
 \section{Implicit-Explicit Time Stepping Scheme}\label{sec:imex}
 
-The following time discretization will use both implicit and explicit strategies. There is significant evidence that using a combination of implicit and explicit methods improves the stability and decreases the error in temporal discretization schemes \cite{Madzamuse}. Once we assemble the  linear system, we will substitute the spatial discretization terms discussed in Section \ref{sec:SFEM}. To begin, we recall our system of equations:
+The following time discretization will use both implicit and explicit strategies. There is significant evidence that using a combination of implicit and explicit methods improves the stability and decreases the error in temporal discretization schemes \cite{Madzvamuse2006}. Once we assemble the  linear system, we will substitute the spatial discretization terms discussed in Section \ref{sec:SFEM}. To begin, we recall our system of equations:
 \begin{equation}
 \frac{\partial u}{\partial t} - \Delta u = \gamma~(\alpha - u + u^2v) ~,~~~~~~~~~
 \frac{\partial v}{\partial t} - \delta\Delta v = \gamma~(\beta - u^2v)
@@ -312,13 +312,13 @@ The mesh itself has a base shape of a cube, and can be refined an arbitrary numb
 	\end{tabular}
 \end{table}
 
-Some visualizations to follow only show data up to $t=0.5$. It is important to establish that data collected at $t=1$ is sufficient to show steady-state dynamics. To do this, we will observe a standard L$_2$ norm, as follows:
+Some visualizations to follow only show data up to $t=0.5$. It is important to establish that data collected up to this point is sufficient to show steady-state dynamics. To do this, we will observe a standard L$_2$ norm, as follows:
 
 \begin{equation}\label{eq:norm_standard}
 	||u_{N+1} - u_{N}|| = \left(\sum_i^{\dim{u}} (u_{N+1} - u_{N})\right)^2
 \end{equation}
 
-Figure \ref{fig:steady-state-h} shows the differences in L$_2$ norms for varying mesh densities, each taken using a timestep length of $10^{-3}$. The norm takes the difference between time steps $u_{N+1}-u_{N}$ as the argument, where $i=1,2,3,...\dim{u}$. We can see that as the mesh density increases (or, as the diameter $h$ halves), the steady state value decreases by about half.
+Figure \ref{fig:steady-state-h} shows the differences in L$_2$ norms for varying mesh densities, each taken using a timestep length of $10^{-3}$. The norm takes the difference between time steps $u_{N+1}-u_{N}$ as the argument, where $i=1,2,3,...\dim{u}$. We can see that as the mesh density increases (or, as the diameter $h$ halves), the steady state norm value decreases by about half.
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{images/norm_numeric.png}
@@ -370,7 +370,7 @@ To verify that the Schnakenberg system meets these requirements, observe the giv
 	\end{aligned}
 \end{equation}
 
-This system is a parabolic reaction-diffusion system, which is guaranteed to be well-posed so long as there are at least 2 boundary conditions and the spatial derivative is of the second degree \cite{Tas2007}. We can see that there are indeed two boundary conditions and that the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma v$ are, by definition, of the second degree. We know the system is parabolic because it follows the form:
+This system is a parabolic reaction-diffusion system, which is guaranteed to be well-posed so long as there are at least 2 boundary conditions and the spatial derivative is of the second degree \cite{Tuncer2015}. We can see that there are indeed two boundary conditions and that the spatial derivatives $\Delta_\Gamma u$ and $\Delta_\Gamma v$ are, by definition, of the second degree. We know the system is parabolic because it follows the form:
 
 \begin{equation}
 	\begin{aligned}
@@ -414,7 +414,7 @@ For FDM, consistency occurs when mesh cells and time step size decrease, the tru
 	P\phi - P_{k,h}\phi \rightarrow 0 ~~~\text{as} ~~~ k,~h \rightarrow 0
 \end{equation}
 
-However, for nonlinear time dependent PDEs, we can measure consistency by examining the local truncation error \cite{Tadmor2012}. For the ssytem in question, we solve each time step via a linear equation. Recall the linear system we set up using the FEM-IMEX scheme:
+However, for nonlinear time dependent PDEs, we can measure consistency by examining the local truncation error \cite{Bonito2010}. For the system in question, we solve each time step via a linear equation. Recall the linear system we set up using the FEM-IMEX scheme:
 
 \begin{equation}
 	\mathcal{A}x=\textbf{b}
@@ -474,14 +474,14 @@ However, because of computational limitations, it was not feasible to calculate 
 \left|\frac{}{} ||W_h|| - ||W_E|| ~\right| \leq \left|\frac{}{} || W_h - W_E|| ~ \right|  \lessapprox \left|h^{q_1} + k^{q_2}\right| = h^{q_1} + k^{q_2}
 \end{equation}
 
-\noindent Using $\left|\frac{}{} ||W_h|| - ||W_E|| ~\right|$ is a valid measure so long as $q=(q_1,q_2) > 0$, then the solution converges at rate $q$. The norms are the same as the one defined in (\ref{eq:norm_standard}). We can also show this graphically. Figure \ref{fig:convergence} below shows how the convergence rates change for varying $h$ and $k$. 
+\noindent Using $\left|\frac{}{} ||W_h|| - ||W_E|| ~\right|$ is a valid measure so long as $q=(q_1,q_2) > 0$, then the solution converges at rate $q$. The norms are the same as the one defined in (\ref{eq:norm_standard}). We can also show this graphically. Figure \ref{fig:convergence} below shows how the convergence rates change for varying $h$ and $k$. Note that each successive graph (from right to left) is zoomed in by a factor of 10 for the $y$-axis.
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth, trim=2.5cm 0 .5cm 0,clip]{images/norms_1.png}
 	\caption{Convergence norms for varying $h$ and $k$}\label{fig:convergence}
 \end{figure}
 
-Convergence norm values are shown in Table \ref{tab:converg_norms} below, for various values of $h$ and $k$. Table \ref{tab:converg_rates} shows the maximum convergence rate for each pair of values $(h,k)$. We can confidently say that all models converge to some degree.
+Convergence norm values are shown in Table \ref{tab:converg_norms} below, for various values of $h$ and $k$. Table \ref{tab:converg_rates} shows the maximum convergence rate for each pair of values $(h,k)$. We can confidently say that all models converge to some degree. Note that convergence rates steadily increase as $k$ decreases.
 
 \begin{table}[H]
 	\caption{Convergence Norm Values For Various $h$ and $k$}\label{tab:converg_norms}
@@ -497,7 +497,7 @@ Convergence norm values are shown in Table \ref{tab:converg_norms} below, for va
 
 
 \begin{table}[H]
-	\caption{Convergence Norm Values For Various $h$ and $k$}\label{tab:converg_rates}
+	\caption{Convergence Rates For Various $h$ and $k$}\label{tab:converg_rates}
 	\centering
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
@@ -509,28 +509,42 @@ Convergence norm values are shown in Table \ref{tab:converg_norms} below, for va
 \end{table}
 
 
-
-
-
-
-
-
-
-
-
-
 \section{Stability}
 
-Stability in a finite difference system demands that the solution is persistent, that is, small perturbations or errors (such as round-off errors) in the data disappear over time. In addition, it implies that a change of the initial and boundary data leads to a comparable change in the numerical solution. This concept is identical for the finite element method. In fact, the formal definition tells us that our solution $must$ be stable, since it is consistent and converges \cite{Tadmor2012}:
+Stability in a finite difference system demands that the solution is persistent, that is, small perturbations or errors (such as round-off errors) in the data disappear over time. In addition, it implies that a change of the initial and boundary data leads to a comparable change in the numerical solution. This concept is identical for the finite element method. In fact, the formal definition tells us that our solution $must$ be stable, since it is consistent and converges \cite{MurrayII2003}:
 
 \begin{theorem}[Lax-Richtmyer]
 	Let $W_h$ be the solution of a numerical method consistent with a well-posed time-dependent problem; in particular, assume that it is accurate of order $p>0$. Then, if the numerical method is stable, its solution converges with $p$th-order convergence rate,
 	$$\left|\left|\frac{}{} W_h - W_E~\right|\right| \lessapprox \sum_{m=0}^n k\cdot ||\textbf{b}-\textbf{A}x|| \lessapprox h^{p_1} + k^{p_2}, ~~~t^n\in[0,T].$$
 \end{theorem}
 
-\section{Conclusion}
+We have shown that the system and solution is consistent and convergent. Therefore, the FEM-IMEX approach is stable. We can confidently use this model for research into other applications.
+
+
+\bibliographystyle{unsrt}
+\bibliography{bib_all}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -593,3 +607,17 @@ Another way to verify that the problem is well-posed is to apply the Lax-Milgram
 \end{theorem}
 
 Recall the weak formation FEM step. The Lax-Milgram Theorem
+
+
+
+
+
+
+
+
+
+
+
+
+
+

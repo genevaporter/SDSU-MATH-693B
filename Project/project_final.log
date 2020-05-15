@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.24)  14 MAY 2020 19:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.24)  14 MAY 2020 21:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -882,14 +882,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Citation `Dziuk1988' on page 1 undefined on input line 47.
-
-
-LaTeX Warning: Citation `Dziuk2013' on page 1 undefined on input line 47.
-
-[1
+) [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (36.20728pt too wide) detected at line 87
@@ -903,29 +896,19 @@ T1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^M [][] 'g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u
  []
 
 [2]
-
-LaTeX Warning: Citation `Flaherty2005' on page 3 undefined on input line 140.
-
-[3]
 Overfull \hbox (52.9683pt too wide) detected at line 160
 [][]
  []
 
-
-LaTeX Warning: Citation `Dziuk2013' on page 4 undefined on input line 163.
-
-[4]
+[3]
 Overfull \hbox (48.52422pt too wide) detected at line 185
 [][]
  []
 
-
+[4]
 Overfull \hbox (57.02342pt too wide) detected at line 194
 [][]
  []
-
-
-LaTeX Warning: Citation `Madzamuse' on page 5 undefined on input line 230.
 
 [5] [6]
 <images/ref2.png, id=32, 1166.3575pt x 805.0075pt>
@@ -970,54 +953,41 @@ File: images/norm_numeric.png Graphic file (type png)
 <use images/norm_numeric.png>
 Package pdftex.def Info: images/norm_numeric.png  used on input line 324.
 (pdftex.def)             Requested size: 390.0pt x 178.34706pt.
- [9 <./images/norm_numeric.png (PNG copy)>]
-
-LaTeX Warning: Citation `Tas2007' on page 10 undefined on input line 373.
-
-
-LaTeX Warning: Citation `Tadmor2012' on page 10 undefined on input line 417.
-
-[10] [11]
+ [9 <./images/norm_numeric.png (PNG copy)>] [10] [11]
 <images/norms_1.png, id=63, 1158.57843pt x 374.14781pt>
 File: images/norms_1.png Graphic file (type png)
 <use images/norms_1.png>
 Package pdftex.def Info: images/norms_1.png  used on input line 480.
 (pdftex.def)             Requested size: 390.0pt x 135.96622pt.
- [12 <./images/norms_1.png>]
-
-LaTeX Warning: Citation `Tadmor2012' on page 13 undefined on input line 524.
-
-[13] (./project_final.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ [12 <./images/norms_1.png>] (./project_final.bbl
+[13]) [14] (./project_final.aux) ) 
 Here is how much of TeX's memory you used:
- 23164 strings out of 492162
- 402550 string characters out of 6125277
- 556975 words of memory out of 5000000
- 27246 multiletter control sequences out of 15000+600000
+ 23174 strings out of 492162
+ 402683 string characters out of 6125277
+ 557000 words of memory out of 5000000
+ 27253 multiletter control sequences out of 15000+600000
  543646 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,11n,68p,1014b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
-b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
-local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on project_final.pdf (13 pages, 772170 bytes).
+</usr/local/texlive/2019/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on project_final.pdf (14 pages, 776095 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 124 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

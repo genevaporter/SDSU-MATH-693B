@@ -1,0 +1,36 @@
+\begin{thebibliography}{1}
+
+\bibitem{Dziuk2012}
+Gerhard Dziuk and Charles~M Elliott.
+\newblock {A Fully Discrete Evolving Surface Finite Element Method}.
+\newblock {\em SIAM Journal on Numerical Analysis}, 50(5):2677--2694, jan 2012.
+
+\bibitem{Tuncer2015}
+N.~Tuncer, Anotida Madzvamuse, and A.J. Meir.
+\newblock {Projected finite elements for reaction–diffusion systems on
+  stationary closed surfaces}.
+\newblock {\em Applied Numerical Mathematics}, 96:45--71, oct 2015.
+
+\bibitem{Dziuk2013}
+Gerhard Dziuk and Charles~M Elliott.
+\newblock {Finite element methods for surface PDEs}.
+\newblock {\em Acta Numerica}, 22:289--396, may 2013.
+
+\bibitem{Madzvamuse2006}
+Anotida Madzvamuse.
+\newblock {Time-stepping schemes for moving grid finite elements applied to
+  reaction–diffusion systems on fixed and growing domains}.
+\newblock {\em Journal of Computational Physics}, 214(1):239--263, may 2006.
+
+\bibitem{Bonito2010}
+A~Bonito, R~H Nochetto, and M~S Pauletti.
+\newblock {Geometrically Consistent Mesh Modification}.
+\newblock {\em SIAM Journal on Numerical Analysis}, 48(5):1877--1899, jan 2010.
+
+\bibitem{MurrayII2003}
+J~D Murray.
+\newblock {\em {Mathematical Biology II: Spatial Models and Biomedical
+  Applications}}.
+\newblock Springer, third edition, 2000.
+
+\end{thebibliography}
